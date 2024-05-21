@@ -55,4 +55,27 @@ public class AccountServiceImpl implements AccountService {
 	public void addInterest() {
 
 	}
+
+	@Override
+	public void generateAccountReports() {
+		for (Account account : getAllAccounts()) {
+			Customer customer = account.getCustomer();
+			System.out.println("Statement for Account: " + account.getAccountNumber());
+			System.out.println("Account Holder: " + customer.getName());
+
+			System.out.println("-Date-------------------------"
+					+ "-Description------------------"
+					+ "-Amount-------------");
+
+			for (AccountEntry entry : account.getEntryList()) {
+				System.out.printf("%30s%30s%20.2f\n",
+						entry.getDate().toString(),
+						entry.getDescription(),
+						entry.getAmount());
+			}
+
+			System.out.println("----------------------------------------" + "----------------------------------------");
+			System.out.printf("%30s%30s%20.2f\n\n", "", "Current Balance:", account.getBalance());
+		}
+	}
 }
