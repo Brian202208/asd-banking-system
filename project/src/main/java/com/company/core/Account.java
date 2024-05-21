@@ -8,11 +8,17 @@ public class Account {
 	private Customer customer;
 
 	private String accountNumber;
+	private AccountType type;
 
 	private List<AccountEntry> entryList = new ArrayList<AccountEntry>();
 
 	public Account(String accountNumber, AccountType type) {
 		this.accountNumber = accountNumber;
+		this.type=type;
+	}
+
+	public void setAccountType(AccountType type){
+		this.type=type;
 	}
 
 	public String getAccountNumber() {

@@ -18,6 +18,13 @@ public class Application {
 
 		//Generate Account Reports
 		accountService.generateAccountReports();
+
+		//Add interest
+		accountService.addInterest();
+
+
+		//Generated Account Reports with Interest
+		accountService.generateAccountReports();
 	}
 
 }
