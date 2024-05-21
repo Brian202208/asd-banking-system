@@ -11,7 +11,7 @@ public class Account {
 
 	private List<AccountEntry> entryList = new ArrayList<AccountEntry>();
 
-	public Account(String accountNumber) {
+	public Account(String accountNumber, AccountType type) {
 		this.accountNumber = accountNumber;
 	}
 

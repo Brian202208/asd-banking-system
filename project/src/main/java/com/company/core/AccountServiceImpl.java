@@ -9,8 +9,8 @@ public class AccountServiceImpl implements AccountService {
 		accountDAO = new AccountDAOImpl();
 	}
 
-	public Account createAccount(String accountNumber, String customerName) {
-		Account account = new Account(accountNumber);
+	public Account createAccount(String accountNumber,String customerName, AccountType type) {
+		Account account = new Account(accountNumber,type);
 		Customer customer = new Customer(customerName);
 		account.setCustomer(customer);
 		

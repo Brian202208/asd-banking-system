@@ -3,7 +3,7 @@ package com.company.core;
 import java.util.Collection;
 
 public interface AccountService {
-        Account createAccount(String accountNumber, String customerName);
+        Account createAccount(String accountNumber, String customerName, AccountType type);
         Account getAccount(String accountNumber);
         Collection<Account> getAllAccounts();
         void deposit (String accountNumber, double amount);
