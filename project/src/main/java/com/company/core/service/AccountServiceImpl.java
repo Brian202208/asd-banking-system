@@ -1,4 +1,11 @@
-package com.company.core;
+package com.company.core.service;
+
+import com.company.core.Account;
+import com.company.core.AccountEntry;
+import com.company.core.AccountType;
+import com.company.core.Customer;
+import com.company.core.dao.AccountDAO;
+import com.company.core.dao.AccountDAOImpl;
 
 import java.util.Collection;
 
@@ -9,7 +16,7 @@ public class AccountServiceImpl implements AccountService {
 		accountDAO = new AccountDAOImpl();
 	}
 
-	public Account createAccount(String accountNumber,String customerName, AccountType type) {
+	public Account createAccount(String accountNumber, String customerName, AccountType type) {
 		Account account = new Account(accountNumber,type);
 		Customer customer = new Customer(customerName);
 		account.setCustomer(customer);

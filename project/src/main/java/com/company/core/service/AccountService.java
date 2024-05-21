@@ -1,4 +1,7 @@
-package com.company.core;
+package com.company.core.service;
+
+import com.company.core.Account;
+import com.company.core.AccountType;
 
 import java.util.Collection;
 

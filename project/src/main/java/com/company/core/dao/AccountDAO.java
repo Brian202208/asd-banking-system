@@ -1,4 +1,6 @@
-package com.company.core;
+package com.company.core.dao;
+
+import com.company.core.Account;
 
 import java.util.Collection;
 
