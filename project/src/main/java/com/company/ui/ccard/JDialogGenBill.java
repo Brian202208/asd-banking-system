@@ -1,12 +1,12 @@
-package edu.mum.cs.cs525.labs.exercises.project.ui.ccard;
+package com.company.ui.ccard;
 /*
 		A basic implementation of the JDialog class.
 */
 
-import java.awt.*;
 import javax.swing.*;
+import java.awt.*;
 
-public class JDialogGenBill extends javax.swing.JDialog
+public class JDialogGenBill extends JDialog
 {
     String billstring;
     
@@ -70,9 +70,9 @@ public class JDialogGenBill extends javax.swing.JDialog
 
 
 	//{{DECLARE_CONTROLS
-	javax.swing.JScrollPane JScrollPane1 = new javax.swing.JScrollPane();
-	javax.swing.JTextField JTextField1 = new javax.swing.JTextField();
-	javax.swing.JButton JButton_OK = new javax.swing.JButton();
+	JScrollPane JScrollPane1 = new JScrollPane();
+	JTextField JTextField1 = new JTextField();
+	JButton JButton_OK = new JButton();
 	//}}
 
 
