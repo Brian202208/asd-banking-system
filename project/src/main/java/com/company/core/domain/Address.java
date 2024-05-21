@@ -1,4 +1,4 @@
-package com.company.core;
+package com.company.core.domain;
 
 public class Address {
     private String street;

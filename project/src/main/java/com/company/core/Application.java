@@ -1,5 +1,6 @@
 package com.company.core;
 
+import com.company.core.domain.AccountType;
 import com.company.core.service.AccountService;
 import com.company.core.service.AccountServiceImpl;
 

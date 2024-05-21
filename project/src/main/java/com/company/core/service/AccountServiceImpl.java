@@ -1,9 +1,9 @@
 package com.company.core.service;
 
-import com.company.core.Account;
-import com.company.core.AccountEntry;
-import com.company.core.AccountType;
-import com.company.core.Customer;
+import com.company.core.domain.Account;
+import com.company.core.domain.AccountEntry;
+import com.company.core.domain.AccountType;
+import com.company.core.domain.Customer;
 import com.company.core.dao.AccountDAO;
 import com.company.core.dao.AccountDAOImpl;
 

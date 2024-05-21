@@ -1,4 +1,4 @@
-package com.company.core;
+package com.company.core.domain;
 
 import java.util.ArrayList;
 import java.util.Collection;
