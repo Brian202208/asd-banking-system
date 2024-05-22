@@ -12,7 +12,7 @@ import java.util.List;
 public abstract class Account implements Subject {
     private Customer customer;
     private String accountNumber;
-    private List<AccountEntry> entryList = new ArrayList<AccountEntry>();
+    private List<AccountEntry> entryList = new ArrayList<>();
     private AccountType type;
     private List<Observer> observers = new ArrayList<>();
 
@@ -23,17 +23,14 @@ public abstract class Account implements Subject {
     public abstract AccountType getAccountType();
     public abstract void addInterest();
     @Override
+    public abstract void notifyObserver(AccountEntry accountEntry);
+    @Override
     public void registerObserver(Observer observer) {
         observers.add(observer);
     }
-
     @Override
     public void removeObserver(Observer observer) {
         observers.remove(observer);
-    }
-
-    @Override
-    public void notifyObserver(AccountEntry accountEntry) {
     }
 
     public double getBalance() {
@@ -45,19 +42,19 @@ public abstract class Account implements Subject {
     }
 
     public void deposit(double amount) {
-        AccountEntry entry = new AccountEntry(amount, "deposit", "", "");
+        AccountEntry entry = new AccountEntry(amount, "deposit", getAccountNumber(), "");
         entryList.add(entry);
+        notifyObserver(entry);
     }
 
     public void withdraw(double amount, String description) {
-        AccountEntry entry = new AccountEntry(-amount, description, "", "");
+        AccountEntry entry = new AccountEntry(-amount, description, getAccountNumber(), "");
         entryList.add(entry);
+        notifyObserver(entry);
     }
-
     private void addEntry(AccountEntry entry) {
         entryList.add(entry);
     }
-
     public void transferFunds(Account toAccount, double amount, String description) {
         AccountEntry fromEntry = new AccountEntry(-amount, description, toAccount.getAccountNumber(),
                 toAccount.getCustomer().getName());

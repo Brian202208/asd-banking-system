@@ -2,6 +2,8 @@ package com.company.creditcard.service;
 
 import com.company.banking.domain.Account;
 import com.company.banking.integration.EmailSender;
+import com.company.common.AccountType;
+import com.company.creditcard.domain.CreditCardAccount;
 import com.company.creditcard.repository.CreditCardAccountRepo;
 import com.company.creditcard.repository.CreditCardAccountRepoImpl;
 
@@ -47,6 +49,10 @@ public class CreditCardAccountServiceImpl implements CreditCardAccountService {
 
     @Override
     public void generateMonthlyBillingReport() {
-
+        for (Account account : getAllAccounts()) {
+            if (account.getAccountType() == AccountType.CREDIT){
+                System.out.println(((CreditCardAccount) account).billingReport());
+            }
+        }
     }
 }

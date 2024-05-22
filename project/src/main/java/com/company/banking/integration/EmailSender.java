@@ -7,22 +7,18 @@ import com.company.banking.domain.AccountEntry;
 import com.company.banking.observer.Observer;
 
 public class EmailSender implements Observer {
-    //action: send email transaction gt 500$ or negative
-    @Override
-    public void update(PersonalAccount account, AccountEntry accountEntry) {
-        if (accountEntry.getAmount() > 500 || accountEntry.getAmount() < 0 || account.getBalance() + accountEntry.getAmount() < 0)
-            sendEmail(account, accountEntry);
-    }
-
     //action: send email company account
     @Override
-    public void update(CompanyAccount account, AccountEntry accountEntry) {
+    public void update(Account account, AccountEntry accountEntry) {
         sendEmail(account, accountEntry);
     }
 
     private void sendEmail(Account account, AccountEntry accountEntry) {
         StringBuilder sb = new StringBuilder();
+        sb.append("Sending Email -----------> " + "\n");
         sb.append("Dear " + account.getCustomer().getName());
+        sb.append("\n");
+        sb.append("Account Number: " + account.getAccountNumber());
         sb.append("\n");
 
         if (accountEntry.getAmount() > 0)
@@ -36,6 +32,9 @@ public class EmailSender implements Observer {
         sb.append("Thank you");
         sb.append("\n");
         sb.append("ASD Bank");
+        sb.append("Sending Sent -----------> " + "\n");
+
+
 
         System.out.println(sb.toString());
     }
