@@ -1,6 +1,7 @@
 package com.company.creditcard.domain;
 
 import com.company.banking.domain.Account;
+import com.company.banking.domain.AccountEntry;
 import com.company.common.AccountType;
 
 
@@ -17,6 +18,11 @@ public class CreditCardAccount extends Account {
 
     @Override
     public void addInterest() {
+
+    }
+
+    @Override
+    public void notifyObserver(AccountEntry accountEntry) {
 
     }
 }
