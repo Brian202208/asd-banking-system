@@ -22,21 +22,20 @@ public class Application {
 		personalAccount1.setCustomer(customer);
 
 		bankingService.createAccount(personalAccount1);
+		// use account 1;
+		bankingService.deposit("1263862", 240);
+		bankingService.deposit("1263862", 529);
+		bankingService.withdraw("1263862", 800);
 
 		BankAccount companyAccount = new CompanyAccount("4253892");
 		companyAccount.setStrategy(new SavingsAccountStrategy());
 		companyAccount.setCustomer(customer);
 
 		bankingService.createAccount(companyAccount);
-
-		// use account 1;
-		bankingService.deposit("1263862", 240);
-		bankingService.deposit("1263862", 529);
-		bankingService.withdraw("1263862", 230);
-
 		// use account 2;
-		bankingService.deposit("4253892", 12450);
+		bankingService.deposit("4253892", 12);
 		bankingService.transferFunds("4253892", "1263862", 100, "payment of invoice 10232");
+
 		// show balances
 		//Generate Account Reports
 		bankingService.generateAccountReports();
@@ -45,5 +44,4 @@ public class Application {
 		//Generated Account Reports with Interest
 		bankingService.generateAccountReports();
 	}
-
 }
