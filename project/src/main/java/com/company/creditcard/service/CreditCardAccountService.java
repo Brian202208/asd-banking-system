@@ -10,7 +10,5 @@ public interface CreditCardAccountService {
     Collection<Account> getAllAccounts();
     void deposit (String accountNumber, double amount);
     void charge(String accountNumber, double amount);
-
     void generateMonthlyBillingReport();
-
 }

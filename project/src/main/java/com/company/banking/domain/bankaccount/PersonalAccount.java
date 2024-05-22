@@ -4,11 +4,10 @@ import com.company.banking.AccountStrategyType;
 import com.company.banking.domain.AccountEntry;
 import com.company.banking.domain.AccountType;
 import com.company.banking.observer.Observer;
-
+import lombok.Setter;
 
 public class PersonalAccount extends BankAccount{
 
-    private AccountStrategyType accountStrategyType;
     public PersonalAccount(String accountNumber) {
         super(accountNumber, AccountType.PERSONAL);
     }

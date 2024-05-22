@@ -1,4 +1,6 @@
 package com.company.creditcard.CreditCardStrategy;
 
-public interface CreditCardStrategy {
+import com.company.banking.strategy.Strategy;
+
+public interface CreditCardStrategy extends Strategy {
 }

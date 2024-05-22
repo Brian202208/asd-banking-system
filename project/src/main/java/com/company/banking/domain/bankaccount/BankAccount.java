@@ -5,10 +5,7 @@ import com.company.banking.domain.Account;
 import com.company.banking.domain.AccountType;
 import lombok.Setter;
 
-@Setter
 public abstract class BankAccount extends Account {
-    BankingStrategy bankingStrategy;
-
     public BankAccount(String accountNumber, AccountType type) {
         super(accountNumber, type);
     }
