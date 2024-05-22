@@ -1,6 +1,5 @@
 package com.company.banking.domain.bankaccount;
 
-import com.company.banking.AccountStrategyType;
 import com.company.banking.domain.AccountEntry;
 import com.company.banking.domain.AccountType;
 import com.company.banking.observer.Observer;
@@ -21,5 +20,4 @@ public class CompanyAccount extends BankAccount {
             o.update(this, entry);
         }
     }
-
 }

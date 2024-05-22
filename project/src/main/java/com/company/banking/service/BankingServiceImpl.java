@@ -54,7 +54,9 @@ public class BankingServiceImpl implements BankingService {
 
 	@Override
 	public void addInterest() {
-
+		for(Account account: getAllAccounts()){
+			account.addInterest();
+		}
 	}
 
 	@Override
@@ -78,11 +80,5 @@ public class BankingServiceImpl implements BankingService {
 			System.out.println("----------------------------------------" + "----------------------------------------");
 			System.out.printf("%30s%30s%20.2f\n\n", "", "Current Balance:", account.getBalance());
 		}
-	}
-
-	@Override
-	public String billingReport(){
-		//TODO:
-		return null;
 	}
 }

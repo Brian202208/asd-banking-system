@@ -1,19 +1,16 @@
 package com.company.banking.domain;
 
-import com.company.banking.AccountStrategyType;
 import com.company.banking.observer.Observer;
 import com.company.banking.observer.Subject;
-import com.company.banking.strategy.Strategy;
+import com.company.banking.strategy.BankingStrategy;
+import com.company.base.Strategy;
 import lombok.Data;
-import lombok.Setter;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Data
 public abstract class Account implements Subject {
-    private Strategy strategy;
     private Customer customer;
     private String accountNumber;
     private List<AccountEntry> entryList = new ArrayList<AccountEntry>();
@@ -74,4 +71,5 @@ public abstract class Account implements Subject {
 
         toAccount.addEntry(toEntry);
     }
+    public abstract void addInterest();
 }

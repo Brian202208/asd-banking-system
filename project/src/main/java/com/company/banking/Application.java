@@ -2,6 +2,7 @@ package com.company.banking;
 
 import com.company.banking.domain.Account;
 import com.company.banking.domain.Customer;
+import com.company.banking.domain.bankaccount.BankAccount;
 import com.company.banking.domain.bankaccount.CompanyAccount;
 import com.company.banking.domain.bankaccount.PersonalAccount;
 import com.company.banking.service.BankingServiceImpl;
@@ -16,13 +17,13 @@ public class Application {
 		// create 2 accounts;
 		Customer customer = new Customer("James");
 
-		Account personalAccount1 = new PersonalAccount("1263862");
+		BankAccount personalAccount1 = new PersonalAccount("1263862");
 		personalAccount1.setStrategy(new CheckingAccountStrategy());
 		personalAccount1.setCustomer(customer);
 
 		bankingService.createAccount(personalAccount1);
 
-		Account companyAccount = new CompanyAccount("4253892");
+		BankAccount companyAccount = new CompanyAccount("4253892");
 		companyAccount.setStrategy(new SavingsAccountStrategy());
 		companyAccount.setCustomer(customer);
 
@@ -39,11 +40,8 @@ public class Application {
 		// show balances
 		//Generate Account Reports
 		bankingService.generateAccountReports();
-
 		//Add interest
 		bankingService.addInterest();
-
-
 		//Generated Account Reports with Interest
 		bankingService.generateAccountReports();
 	}

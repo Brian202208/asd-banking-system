@@ -1,6 +1,5 @@
 package com.company.creditcard.domain;
 
-import com.company.banking.AccountStrategyType;
 import com.company.banking.domain.Account;
 import com.company.banking.domain.AccountType;
 
@@ -14,5 +13,10 @@ public class CreditCardAccount extends Account {
     @Override
     public AccountType getAccountType() {
         return AccountType.CREDIT;
+    }
+
+    @Override
+    public void addInterest() {
+
     }
 }

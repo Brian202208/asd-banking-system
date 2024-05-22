@@ -13,5 +13,4 @@ public interface BankingService {
         void transferFunds(String fromAccountNumber, String toAccountNumber, double amount, String description);
         void addInterest();
         void generateAccountReports();
-        String billingReport();
 }

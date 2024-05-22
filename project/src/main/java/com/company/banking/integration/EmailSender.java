@@ -7,10 +7,10 @@ import com.company.banking.domain.AccountEntry;
 import com.company.banking.observer.Observer;
 
 public class EmailSender implements Observer {
-    //action: send email transaction gt 400$ or negative
+    //action: send email transaction gt 500$ or negative
     @Override
     public void update(PersonalAccount account, AccountEntry accountEntry) {
-        if (accountEntry.getAmount() > 400 || accountEntry.getAmount() < 0 || account.getBalance() + accountEntry.getAmount() < 0)
+        if (accountEntry.getAmount() > 500 || accountEntry.getAmount() < 0 || account.getBalance() + accountEntry.getAmount() < 0)
             sendEmail(account, accountEntry);
     }
 
