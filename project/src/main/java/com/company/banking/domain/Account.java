@@ -2,8 +2,7 @@ package com.company.banking.domain;
 
 import com.company.banking.observer.Observer;
 import com.company.banking.observer.Subject;
-import com.company.banking.strategy.BankingStrategy;
-import com.company.base.Strategy;
+import com.company.common.AccountType;
 import lombok.Data;
 
 import java.util.ArrayList;
@@ -21,10 +20,8 @@ public abstract class Account implements Subject {
         this.accountNumber = accountNumber;
         this.type = type;
     }
-
     public abstract AccountType getAccountType();
-
-
+    public abstract void addInterest();
     @Override
     public void registerObserver(Observer observer) {
         observers.add(observer);
@@ -71,5 +68,4 @@ public abstract class Account implements Subject {
 
         toAccount.addEntry(toEntry);
     }
-    public abstract void addInterest();
 }

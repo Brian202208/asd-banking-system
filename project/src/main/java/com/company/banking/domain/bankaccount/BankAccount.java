@@ -2,7 +2,7 @@ package com.company.banking.domain.bankaccount;
 
 import com.company.banking.strategy.BankingStrategy;
 import com.company.banking.domain.Account;
-import com.company.banking.domain.AccountType;
+import com.company.common.AccountType;
 import lombok.Setter;
 @Setter
 public abstract class BankAccount extends Account {

@@ -1,4 +1,4 @@
-package com.company.base;
+package com.company.common;
 
 public interface Strategy {
 }

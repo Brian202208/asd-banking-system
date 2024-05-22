@@ -1,7 +1,7 @@
 package com.company.creditcard.domain;
 
 import com.company.banking.domain.Account;
-import com.company.banking.domain.AccountType;
+import com.company.common.AccountType;
 
 
 public class CreditCardAccount extends Account {
