@@ -6,6 +6,7 @@ import com.company.core.domain.AccountType;
 import com.company.core.domain.Customer;
 import com.company.core.dao.AccountDAO;
 import com.company.core.dao.AccountDAOImpl;
+import com.company.core.observer.EmailSender;
 
 import java.util.Collection;
 
@@ -22,6 +23,7 @@ public class AccountServiceImpl implements AccountService {
 		account.setCustomer(customer);
 		
 		accountDAO.saveAccount(account);
+		account.registerObserver(new EmailSender());
 		
 		return account;
 	}
@@ -84,5 +86,11 @@ public class AccountServiceImpl implements AccountService {
 			System.out.println("----------------------------------------" + "----------------------------------------");
 			System.out.printf("%30s%30s%20.2f\n\n", "", "Current Balance:", account.getBalance());
 		}
+	}
+
+	@Override
+	public String billingReport(){
+		//TODO:
+		return null;
 	}
 }

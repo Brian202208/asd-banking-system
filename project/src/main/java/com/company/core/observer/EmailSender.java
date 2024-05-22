@@ -5,14 +5,16 @@ import com.company.core.bankaccount.PersonalAccount;
 import com.company.core.domain.Account;
 import com.company.core.domain.AccountEntry;
 
-public class EmailSender {
+public class EmailSender implements Observer {
     //action: send email transaction gt 400$ or negative
+    @Override
     public void update(PersonalAccount account, AccountEntry accountEntry) {
         if (accountEntry.getAmount() > 400 || accountEntry.getAmount() < 0 || account.getBalance() + accountEntry.getAmount() < 0)
             sendEmail(account, accountEntry);
     }
 
     //action: send email company account
+    @Override
     public void update(CompanyAccount account, AccountEntry accountEntry) {
         sendEmail(account, accountEntry);
     }

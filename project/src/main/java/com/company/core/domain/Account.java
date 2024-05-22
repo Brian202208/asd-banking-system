@@ -43,7 +43,8 @@ public class Account implements Subject {
     }
 
     @Override
-    public void notifyObserver(AccountEntry accountEntry) {}
+    public void notifyObserver(AccountEntry accountEntry) {
+    }
 
     public List<Observer> getObservers() {
         return observers;
