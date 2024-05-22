@@ -1,11 +1,10 @@
 package com.company.banking.service;
 
 import com.company.banking.domain.Account;
-import com.company.banking.domain.AccountType;
 
 import java.util.Collection;
 
-public interface AccountService {
+public interface BankingService {
         void createAccount(Account account);
         Account getAccount(String accountNumber);
         Collection<Account> getAllAccounts();

@@ -1,28 +1,28 @@
-package com.company.banking.dao;
+package com.company.creditcard.repository;
 
 import com.company.banking.domain.Account;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class AccountDAOImpl implements AccountDAO {
-    Collection<Account> accountlist = new ArrayList<Account>();
+public class CreditCardAccountRepoImpl implements CreditCardAccountRepo{
+    Collection<Account> creditCardAccountList = new ArrayList<>();
 
     public void saveAccount(Account account) {
-        accountlist.add(account); // add the new
+        creditCardAccountList.add(account); // add the new
     }
 
     public void updateAccount(Account account) {
         Account accountexist = loadAccount(account.getAccountNumber());
         if (accountexist != null) {
-            accountlist.remove(accountexist); // remove the old
-            accountlist.add(account); // add the new
+            creditCardAccountList.remove(accountexist); // remove the old
+            creditCardAccountList.add(account); // add the new
         }
 
     }
 
     public Account loadAccount(String accountNumber) {
-        for (Account account : accountlist) {
+        for (Account account : creditCardAccountList) {
             if (account.getAccountNumber().equals(accountNumber)) {
                 return account;
             }
@@ -31,7 +31,6 @@ public class AccountDAOImpl implements AccountDAO {
     }
 
     public Collection<Account> getAccounts() {
-        return accountlist;
+        return creditCardAccountList;
     }
-
 }

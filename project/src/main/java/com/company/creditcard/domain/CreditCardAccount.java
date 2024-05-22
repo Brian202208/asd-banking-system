@@ -10,13 +10,9 @@ public class CreditCardAccount extends Account {
         super(accountNumber, AccountType.CREDIT);
     }
 
-    @Override
-    public AccountStrategyType getAccountStrategy() {
-        return null;
-    }
 
     @Override
     public AccountType getAccountType() {
-        return null;
+        return AccountType.CREDIT;
     }
 }

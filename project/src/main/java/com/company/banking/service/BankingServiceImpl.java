@@ -3,53 +3,53 @@ package com.company.banking.service;
 import com.company.banking.domain.Account;
 import com.company.banking.domain.AccountEntry;
 import com.company.banking.domain.Customer;
-import com.company.banking.dao.AccountDAO;
-import com.company.banking.dao.AccountDAOImpl;
+import com.company.banking.repository.AccountRepository;
+import com.company.banking.repository.AccountRepositoryImpl;
 import com.company.banking.integration.EmailSender;
 
 import java.util.Collection;
 
-public class AccountServiceImpl implements AccountService {
-	private AccountDAO accountDAO;
-	
-	public AccountServiceImpl(){
-		accountDAO = new AccountDAOImpl();
+public class BankingServiceImpl implements BankingService {
+	private final AccountRepository accountRepository;
+
+	public BankingServiceImpl(){
+		accountRepository = new AccountRepositoryImpl();
 	}
 
 	public void createAccount(Account account) {
-		accountDAO.saveAccount(account);
+		accountRepository.saveAccount(account);
 		account.registerObserver(new EmailSender());
 	}
 
 	public void deposit(String accountNumber, double amount) {
-		Account account = accountDAO.loadAccount(accountNumber);
+		Account account = accountRepository.loadAccount(accountNumber);
 		account.deposit(amount);
-		accountDAO.updateAccount(account);
+		accountRepository.updateAccount(account);
 	}
 
 	public Account getAccount(String accountNumber) {
-		Account account = accountDAO.loadAccount(accountNumber);
+		Account account = accountRepository.loadAccount(accountNumber);
 		return account;
 	}
 
 	public Collection<Account> getAllAccounts() {
-		return accountDAO.getAccounts();
+		return accountRepository.getAccounts();
 	}
 
 	public void withdraw(String accountNumber, double amount) {
-		Account account = accountDAO.loadAccount(accountNumber);
-		account.withdraw(amount);
-		accountDAO.updateAccount(account);
+		Account account = accountRepository.loadAccount(accountNumber);
+		account.withdraw(amount,"Withdraw");
+		accountRepository.updateAccount(account);
 	}
 
 
 
 	public void transferFunds(String fromAccountNumber, String toAccountNumber, double amount, String description) {
-		Account fromAccount = accountDAO.loadAccount(fromAccountNumber);
-		Account toAccount = accountDAO.loadAccount(toAccountNumber);
+		Account fromAccount = accountRepository.loadAccount(fromAccountNumber);
+		Account toAccount = accountRepository.loadAccount(toAccountNumber);
 		fromAccount.transferFunds(toAccount, amount, description);
-		accountDAO.updateAccount(fromAccount);
-		accountDAO.updateAccount(toAccount);
+		accountRepository.updateAccount(fromAccount);
+		accountRepository.updateAccount(toAccount);
 	}
 
 	@Override

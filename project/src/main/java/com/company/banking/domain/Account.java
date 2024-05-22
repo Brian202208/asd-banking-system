@@ -6,6 +6,7 @@ import com.company.banking.observer.Subject;
 import lombok.Data;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Data
@@ -21,11 +22,7 @@ public abstract class Account implements Subject {
         this.type = type;
     }
 
-    //by default value
-    public abstract AccountStrategyType getAccountStrategy();
     public abstract AccountType getAccountType();
-
-    ;
 
 
     @Override
@@ -55,8 +52,8 @@ public abstract class Account implements Subject {
         entryList.add(entry);
     }
 
-    public void withdraw(double amount) {
-        AccountEntry entry = new AccountEntry(-amount, "withdraw", "", "");
+    public void withdraw(double amount, String description) {
+        AccountEntry entry = new AccountEntry(-amount, description, "", "");
         entryList.add(entry);
     }
 
