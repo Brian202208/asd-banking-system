@@ -1,4 +1,4 @@
-package com.company.core.bankaccount.strategy;
+package com.company.core.strategy;
 
 import com.company.core.AccountStrategyType;
 
