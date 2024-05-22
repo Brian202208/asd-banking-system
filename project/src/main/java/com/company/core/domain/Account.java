@@ -1,23 +1,52 @@
 package com.company.core.domain;
 
 import com.company.core.AccountStrategyType;
+import com.company.core.observer.Observer;
+import com.company.core.observer.Subject;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class Account {
+public class Account implements Subject {
     private Customer customer;
     private String accountNumber;
     private List<AccountEntry> entryList = new ArrayList<AccountEntry>();
     private AccountType type;
+    private List<Observer> observers = new ArrayList<>();
+
     public Account(String accountNumber, AccountType type) {
         this.accountNumber = accountNumber;
         this.type = type;
     }
 
+    //by default value
+    public AccountStrategyType getAccountStrategy() {
+        return AccountStrategyType.CHECKING;
+    }
+    public AccountType getAccountType() {
+        return AccountType.PERSONAL;
+    };
+
     public String getAccountNumber() {
         return accountNumber;
+    }
+
+    @Override
+    public void registerObserver(Observer observer) {
+        observers.add(observer);
+    }
+
+    @Override
+    public void removeObserver(Observer observer) {
+        observers.remove(observer);
+    }
+
+    @Override
+    public void notifyObserver(AccountEntry accountEntry) {}
+
+    public List<Observer> getObservers() {
+        return observers;
     }
 
     public void setAccountNumber(String accountNumber) {

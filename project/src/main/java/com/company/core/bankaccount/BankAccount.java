@@ -1,11 +1,9 @@
 package com.company.core.bankaccount;
 
-import com.company.core.bankaccount.strategy.InterestStrategy;
+import com.company.core.strategy.InterestStrategy;
 import com.company.core.AccountStrategyType;
 import com.company.core.domain.Account;
-import com.company.core.domain.AccountEntry;
 import com.company.core.domain.AccountType;
-import com.company.core.domain.Customer;
 
 public abstract class BankAccount extends Account {
     InterestStrategy interestStrategy;
