@@ -15,6 +15,7 @@ public class EmailSender implements Observer {
 
     private void sendEmail(Account account, AccountEntry accountEntry) {
         StringBuilder sb = new StringBuilder();
+        sb.append("Sending Email -----------> " + "\n");
         sb.append("Dear " + account.getCustomer().getName());
         sb.append("\n");
         sb.append("Account Number: " + account.getAccountNumber());
@@ -28,9 +29,12 @@ public class EmailSender implements Observer {
         sb.append("\n");
         sb.append("Account balance now is " + account.getBalance());
         sb.append("\n");
-//        sb.append("Thank you");
-//        sb.append("\n");
-//        sb.append("ASD Bank");
+        sb.append("Thank you");
+        sb.append("\n");
+        sb.append("ASD Bank");
+        sb.append("Sending Sent -----------> " + "\n");
+
+
 
         System.out.println(sb.toString());
     }

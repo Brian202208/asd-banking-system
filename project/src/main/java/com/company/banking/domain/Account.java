@@ -12,7 +12,7 @@ import java.util.List;
 public abstract class Account implements Subject {
     private Customer customer;
     private String accountNumber;
-    private List<AccountEntry> entryList = new ArrayList<AccountEntry>();
+    private List<AccountEntry> entryList = new ArrayList<>();
     private AccountType type;
     private List<Observer> observers = new ArrayList<>();
 
@@ -48,7 +48,7 @@ public abstract class Account implements Subject {
     }
 
     public void withdraw(double amount, String description) {
-        AccountEntry entry = new AccountEntry(-amount, "withdraw", getAccountNumber(), "");
+        AccountEntry entry = new AccountEntry(-amount, description, getAccountNumber(), "");
         entryList.add(entry);
         notifyObserver(entry);
     }
