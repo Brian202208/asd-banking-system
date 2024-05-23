@@ -1,48 +1,17 @@
 package com.company.banking.service;
 
-import com.company.banking.domain.Account;
-import com.company.banking.domain.AccountEntry;
+import com.company.framework.domain.Account;
+import com.company.framework.domain.AccountEntry;
 import com.company.banking.domain.Customer;
-import com.company.banking.repository.AccountRepository;
-import com.company.banking.repository.AccountRepositoryImpl;
+import com.company.framework.repository.AccountRepository;
+import com.company.framework.repository.AccountRepositoryImpl;
 import com.company.banking.integration.EmailSender;
+import com.company.framework.service.AccountService;
+import com.company.framework.service.AccountServiceImpl;
 
 import java.util.Collection;
 
-public class BankingServiceImpl implements BankingService {
-	private final AccountRepository accountRepository;
-
-	public BankingServiceImpl(){
-		accountRepository = new AccountRepositoryImpl();
-	}
-
-	public void createAccount(Account account) {
-		accountRepository.saveAccount(account);
-		account.registerObserver(new EmailSender());
-	}
-
-	public void deposit(String accountNumber, double amount) {
-		Account account = accountRepository.loadAccount(accountNumber);
-		account.deposit(amount);
-		accountRepository.updateAccount(account);
-	}
-
-	public Account getAccount(String accountNumber) {
-		Account account = accountRepository.loadAccount(accountNumber);
-		return account;
-	}
-
-	public Collection<Account> getAllAccounts() {
-		return accountRepository.getAccounts();
-	}
-
-	public void withdraw(String accountNumber, double amount) {
-		Account account = accountRepository.loadAccount(accountNumber);
-		account.withdraw(amount,"Withdraw");
-		accountRepository.updateAccount(account);
-	}
-
-
+public class BankingServiceImpl extends AccountServiceImpl  implements BankingService{
 
 	public void transferFunds(String fromAccountNumber, String toAccountNumber, double amount, String description) {
 		Account fromAccount = accountRepository.loadAccount(fromAccountNumber);
@@ -52,14 +21,12 @@ public class BankingServiceImpl implements BankingService {
 		accountRepository.updateAccount(toAccount);
 	}
 
-	@Override
 	public void addInterest() {
 		for(Account account: getAllAccounts()){
 			account.addInterest();
 		}
 	}
 
-	@Override
 	public void generateAccountReports() {
 		for (Account account : getAllAccounts()) {
 			Customer customer = account.getCustomer();

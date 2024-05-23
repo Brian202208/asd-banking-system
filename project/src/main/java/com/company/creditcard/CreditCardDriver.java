@@ -1,9 +1,6 @@
 package com.company.creditcard;
 
-import com.company.banking.domain.Account;
 import com.company.banking.domain.Customer;
-import com.company.creditcard.CreditCardStrategy.BronzeCardStrategy;
-import com.company.creditcard.CreditCardStrategy.GoldCardStrategy;
 import com.company.creditcard.CreditCardStrategy.SilverCardStrategy;
 import com.company.creditcard.domain.CreditCardAccount;
 import com.company.creditcard.service.CreditCardAccountService;
@@ -24,7 +21,7 @@ public class CreditCardDriver {
         creditCardAccount.setStrategy(new SilverCardStrategy());
 
         // use account 1;
-//        creditCardAccountService.deposit("1263862", 240);
+        creditCardAccountService.deposit("1263862", 240);
 //        creditCardAccountService.deposit("1263862", 529);
         creditCardAccountService.charge("1263862", 500);
 

@@ -1,7 +1,7 @@
 package com.company.banking.factory;
 
 import com.company.banking.domain.bankaccount.PersonalAccount;
-import com.company.banking.domain.Account;
+import com.company.framework.domain.Account;
 import com.company.banking.domain.Address;
 import com.company.banking.domain.Customer;
 import com.company.banking.strategy.CheckingAccountStrategy;

@@ -1,7 +1,7 @@
 package com.company.creditcard.domain;
 
-import com.company.banking.domain.Account;
-import com.company.banking.domain.AccountEntry;
+import com.company.framework.domain.Account;
+import com.company.framework.domain.AccountEntry;
 import com.company.banking.observer.Observer;
 import com.company.common.AccountType;
 import com.company.creditcard.CreditCardStrategy.CreditCardStrategy;

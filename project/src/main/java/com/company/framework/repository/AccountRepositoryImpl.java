@@ -1,28 +1,28 @@
-package com.company.creditcard.repository;
+package com.company.framework.repository;
 
-import com.company.banking.domain.Account;
+import com.company.framework.domain.Account;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class CreditCardAccountRepoImpl implements CreditCardAccountRepo{
-    Collection<Account> creditCardAccountList = new ArrayList<>();
+public class AccountRepositoryImpl implements AccountRepository {
+    Collection<Account> accountlist = new ArrayList<Account>();
 
     public void saveAccount(Account account) {
-        creditCardAccountList.add(account); // add the new
+        accountlist.add(account); // add the new
     }
 
     public void updateAccount(Account account) {
         Account accountexist = loadAccount(account.getAccountNumber());
         if (accountexist != null) {
-            creditCardAccountList.remove(accountexist); // remove the old
-            creditCardAccountList.add(account); // add the new
+            accountlist.remove(accountexist); // remove the old
+            accountlist.add(account); // add the new
         }
 
     }
 
     public Account loadAccount(String accountNumber) {
-        for (Account account : creditCardAccountList) {
+        for (Account account : accountlist) {
             if (account.getAccountNumber().equals(accountNumber)) {
                 return account;
             }
@@ -31,6 +31,7 @@ public class CreditCardAccountRepoImpl implements CreditCardAccountRepo{
     }
 
     public Collection<Account> getAccounts() {
-        return creditCardAccountList;
+        return accountlist;
     }
+
 }

@@ -1,5 +1,6 @@
 package com.company.banking.domain;
 
+import com.company.framework.domain.Account;
 import lombok.Data;
 
 import java.util.ArrayList;

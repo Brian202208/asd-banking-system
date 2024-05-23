@@ -1,6 +1,6 @@
 package com.company.banking.factory;
 
-import com.company.banking.domain.Account;
+import com.company.framework.domain.Account;
 
 public abstract class FactoryAccount {
     public abstract Account getAccount(String row1, String row2, String row3, String row4,

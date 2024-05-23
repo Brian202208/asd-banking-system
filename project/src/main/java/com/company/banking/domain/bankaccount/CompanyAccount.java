@@ -1,6 +1,6 @@
 package com.company.banking.domain.bankaccount;
 
-import com.company.banking.domain.AccountEntry;
+import com.company.framework.domain.AccountEntry;
 import com.company.common.AccountType;
 import com.company.banking.observer.Observer;
 

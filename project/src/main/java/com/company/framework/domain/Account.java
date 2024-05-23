@@ -1,5 +1,6 @@
-package com.company.banking.domain;
+package com.company.framework.domain;
 
+import com.company.banking.domain.Customer;
 import com.company.banking.observer.Observer;
 import com.company.banking.observer.Subject;
 import com.company.common.AccountType;

@@ -1,6 +1,5 @@
 package com.company.banking;
 
-import com.company.banking.domain.Account;
 import com.company.banking.domain.Customer;
 import com.company.banking.domain.bankaccount.BankAccount;
 import com.company.banking.domain.bankaccount.CompanyAccount;
@@ -9,6 +8,7 @@ import com.company.banking.service.BankingServiceImpl;
 import com.company.banking.service.BankingService;
 import com.company.banking.strategy.CheckingAccountStrategy;
 import com.company.banking.strategy.SavingsAccountStrategy;
+import com.company.framework.service.AccountServiceImpl;
 
 public class Application {
 	public static void main(String[] args) {
@@ -25,7 +25,7 @@ public class Application {
 		// use account 1;
 		bankingService.deposit("1263862", 240);
 		bankingService.deposit("1263862", 529);
-		bankingService.withdraw("1263862", 800);
+		bankingService.withdraw("1263862", 800, "withdraw");
 
 		BankAccount companyAccount = new CompanyAccount("4253892");
 		companyAccount.setStrategy(new SavingsAccountStrategy());

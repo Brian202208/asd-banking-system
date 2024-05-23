@@ -1,9 +1,7 @@
 package com.company.banking.integration;
 
-import com.company.banking.domain.bankaccount.CompanyAccount;
-import com.company.banking.domain.bankaccount.PersonalAccount;
-import com.company.banking.domain.Account;
-import com.company.banking.domain.AccountEntry;
+import com.company.framework.domain.Account;
+import com.company.framework.domain.AccountEntry;
 import com.company.banking.observer.Observer;
 
 public class EmailSender implements Observer {

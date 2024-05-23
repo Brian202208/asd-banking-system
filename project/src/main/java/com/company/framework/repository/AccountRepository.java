@@ -1,6 +1,6 @@
-package com.company.banking.repository;
+package com.company.framework.repository;
 
-import com.company.banking.domain.Account;
+import com.company.framework.domain.Account;
 
 import java.util.Collection;
 

@@ -1,14 +1,12 @@
 package com.company.creditcard.service;
 
-import com.company.banking.domain.Account;
+import com.company.framework.domain.Account;
+import com.company.framework.service.AccountService;
 
 import java.util.Collection;
 
-public interface CreditCardAccountService {
-    void createAccount(Account account);
-    Account getAccount(String accountNumber);
-    Collection<Account> getAllAccounts();
-    void deposit (String accountNumber, double amount);
+public interface CreditCardAccountService extends AccountService{
+
     void charge(String accountNumber, double amount);
     void generateMonthlyBillingReport();
 }

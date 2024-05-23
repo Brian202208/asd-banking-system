@@ -1,4 +1,4 @@
-package com.company.banking.domain;
+package com.company.framework.domain;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

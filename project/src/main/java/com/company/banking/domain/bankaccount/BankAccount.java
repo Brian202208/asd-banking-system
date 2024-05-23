@@ -1,7 +1,7 @@
 package com.company.banking.domain.bankaccount;
 
 import com.company.banking.strategy.BankingStrategy;
-import com.company.banking.domain.Account;
+import com.company.framework.domain.Account;
 import com.company.common.AccountType;
 import lombok.Setter;
 @Setter
