@@ -24,7 +24,7 @@ public class JDialog_AddPAcc extends JDialog
 	{
 		super(parent);
 		parentframe=parent;
-		bankingService = BankingServiceImpSingleton.getInstance();
+		bankingService = BankingServiceImpl.getInstance();
 
 
 		

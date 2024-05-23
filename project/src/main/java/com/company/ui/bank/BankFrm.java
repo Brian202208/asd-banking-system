@@ -28,7 +28,7 @@ public class BankFrm extends JFrame
 	public BankFrm()
 	{
 		myframe = this;
-		bankService = BankingServiceImpSingleton.getInstance();
+		bankService = BankingServiceImpl.getInstance();
 
 		setTitle("Bank Application.");
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);

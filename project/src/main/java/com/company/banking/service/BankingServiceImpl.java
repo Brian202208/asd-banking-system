@@ -12,8 +12,19 @@ import java.util.Collection;
 public class BankingServiceImpl implements BankingService {
 	private final AccountRepository accountRepository;
 
-	public BankingServiceImpl(){
+	private BankingServiceImpl(){
 		accountRepository = new AccountRepositoryImpl();
+	}
+
+
+	private static BankingServiceImpl instance = null;
+
+
+	public static BankingServiceImpl getInstance() {
+		if (instance == null) {
+			instance = new BankingServiceImpl();
+		}
+		return instance;
 	}
 
 	public void createAccount(Account account) {
