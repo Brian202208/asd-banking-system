@@ -8,5 +8,5 @@ import java.util.Collection;
 public interface CreditCardAccountService extends AccountService{
 
     void charge(String accountNumber, double amount);
-    void generateMonthlyBillingReport();
+    String generateMonthlyBillingReport();
 }

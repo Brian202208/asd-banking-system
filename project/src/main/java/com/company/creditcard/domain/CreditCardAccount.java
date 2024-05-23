@@ -21,6 +21,10 @@ public class CreditCardAccount extends Account {
         super(accountNumber, AccountType.CREDIT);
     }
 
+    public void setCreditCardStrategy(CreditCardStrategy strategy) {
+        this.strategy = strategy;
+    }
+
 
     @Override
     public AccountType getAccountType() {
@@ -94,7 +98,8 @@ public class CreditCardAccount extends Account {
     }
 
     public String billingReport() {
-        return String.format("Previous balance = $ %.2f\r\n", previousBalance()) +
+        return String.format("Name= $ %s\r\n", getCustomer().getName()) +
+                String.format("Previous balance = $ %.2f\r\n", previousBalance()) +
                 String.format("Total Credits = $ %.2f\r\n", totalCredits()) +
                 String.format("Total Charges = $ %.2f\r\n", totalCharges()) +
                 String.format("New balance = $ %.2f\r\n", newBalance()) +

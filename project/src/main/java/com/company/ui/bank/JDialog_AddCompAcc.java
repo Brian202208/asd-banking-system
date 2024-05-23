@@ -4,7 +4,6 @@ import com.company.banking.domain.Address;
 import com.company.banking.domain.Customer;
 import com.company.banking.domain.bankaccount.BankAccount;
 import com.company.banking.domain.bankaccount.CompanyAccount;
-import com.company.banking.domain.bankaccount.PersonalAccount;
 import com.company.banking.service.BankingServiceImpl;
 import com.company.banking.strategy.CheckingAccountStrategy;
 import com.company.banking.strategy.SavingsAccountStrategy;
