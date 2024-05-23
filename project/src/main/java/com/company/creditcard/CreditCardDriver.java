@@ -8,7 +8,7 @@ import com.company.creditcard.service.CreditCardAccountServiceImpl;
 
 public class CreditCardDriver {
     public static void main(String[] args) {
-        CreditCardAccountService creditCardAccountService = new CreditCardAccountServiceImpl();
+        CreditCardAccountService creditCardAccountService = CreditCardAccountServiceImpl.getInstance();
 
         // create 2 accounts;
         Customer customer = new Customer("Harry");
@@ -28,5 +28,8 @@ public class CreditCardDriver {
 
         //Generated Account Reports with Interest
         creditCardAccountService.generateMonthlyBillingReport();
+
+        //Search for account by name
+
     }
 }

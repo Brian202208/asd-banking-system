@@ -4,7 +4,7 @@ import com.company.banking.domain.Address;
 import com.company.banking.domain.Customer;
 import com.company.banking.domain.bankaccount.BankAccount;
 import com.company.banking.domain.bankaccount.CompanyAccount;
-import com.company.banking.domain.bankaccount.PersonalAccount;
+import com.company.banking.service.BankingService;
 import com.company.banking.service.BankingServiceImpl;
 import com.company.banking.strategy.CheckingAccountStrategy;
 import com.company.banking.strategy.SavingsAccountStrategy;
@@ -17,7 +17,7 @@ import java.awt.*;
 public class JDialog_AddCompAcc extends JDialog
 {
     private BankFrm parentframe;
-	private BankingServiceImpl bankingService;
+	private BankingService bankingService;
     
 	public JDialog_AddCompAcc(BankFrm parent)
 	{
@@ -149,9 +149,12 @@ public class JDialog_AddCompAcc extends JDialog
 	void JButtonOK_actionPerformed(java.awt.event.ActionEvent event)
 	{
 		parentframe.accountnr=JTextField_ACNR.getText();
+
+		//Initialize account, Factory
 		BankAccount companyAccount = new CompanyAccount(JTextField_ACNR.getText());
 
 		parentframe.clientName=JTextField_NAME.getText();
+
 		Customer customer = new Customer(JTextField_NAME.getText());
 		companyAccount.setCustomer(customer);
 

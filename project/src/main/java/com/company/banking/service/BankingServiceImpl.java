@@ -6,8 +6,16 @@ import com.company.framework.domain.Account;
 import com.company.framework.domain.AccountEntry;
 import com.company.framework.service.AccountServiceImpl;
 
-public class BankingServiceImpl extends AccountServiceImpl implements BankingService{
+
+import java.util.Collection;
+
+
+public class BankingServiceImpl extends AccountServiceImpl  implements BankingService{
+
+	//Singleton Pattern used -------------->
+
 	private static BankingServiceImpl instance = null;
+
 	private BankingServiceImpl() {}
 	public static BankingServiceImpl getInstance() {
 		if (instance == null) {
@@ -15,6 +23,7 @@ public class BankingServiceImpl extends AccountServiceImpl implements BankingSer
 		}
 		return instance;
 	}
+	//------------------------------------->
 
 
 	@Override
