@@ -13,15 +13,9 @@ public class Customer {
     private String birthdate;
     private Address address;
 
-    private List<Account> accountList;
 
     public Customer(String name) {
         this.name = name;
-        this.accountList = new ArrayList<>();
-    }
-
-    public void addAccount(Account acc) {
-        this.accountList.add(acc);
     }
 
 
