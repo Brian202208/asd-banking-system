@@ -1,7 +1,7 @@
 package com.company.creditcard;
 
-import com.company.banking.domain.Customer;
-import com.company.creditcard.CreditCardStrategy.SilverCardStrategy;
+import com.company.common.Customer;
+import com.company.creditcard.strategy.SilverCardStrategy;
 import com.company.creditcard.domain.CreditCardAccount;
 import com.company.creditcard.service.CreditCardAccountService;
 import com.company.creditcard.service.CreditCardAccountServiceImpl;

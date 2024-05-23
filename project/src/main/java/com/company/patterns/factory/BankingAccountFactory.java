@@ -1,10 +1,10 @@
-package com.company.framework.factory;
+package com.company.patterns.factory;
 
-import com.company.banking.domain.Customer;
-import com.company.banking.domain.bankaccount.BankAccount;
-import com.company.banking.domain.bankaccount.CompanyAccount;
-import com.company.banking.domain.bankaccount.PersonalAccount;
-import com.company.common.AccountType;
+import com.company.common.Customer;
+import com.company.banking.domain.BankAccount;
+import com.company.banking.domain.CompanyAccount;
+import com.company.banking.domain.PersonalAccount;
+import com.company.framework.domain.AccountType;
 
 public class BankingAccountFactory extends AccountFactory{
     @Override

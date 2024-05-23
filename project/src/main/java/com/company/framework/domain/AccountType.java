@@ -1,4 +1,4 @@
-package com.company.common;
+package com.company.framework.domain;
 
 public enum AccountType {
     CREDIT,

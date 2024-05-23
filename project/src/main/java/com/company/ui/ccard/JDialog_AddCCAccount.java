@@ -3,16 +3,12 @@ package com.company.ui.ccard;
 		A basic implementation of the JDialog class.
 */
 
-import com.company.banking.domain.Address;
-import com.company.banking.domain.Customer;
-import com.company.creditcard.CreditCardStrategy.GoldCardStrategy;
-import com.company.creditcard.CreditCardStrategy.SilverCardStrategy;
+import com.company.common.Address;
+import com.company.common.Customer;
+import com.company.creditcard.strategy.GoldCardStrategy;
+import com.company.creditcard.strategy.SilverCardStrategy;
 import com.company.creditcard.domain.CreditCardAccount;
 import com.company.creditcard.service.CreditCardAccountServiceImpl;
-import com.company.framework.domain.Account;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class JDialog_AddCCAccount extends javax.swing.JDialog
 {

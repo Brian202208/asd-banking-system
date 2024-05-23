@@ -1,10 +1,6 @@
-package com.company.banking.domain;
+package com.company.common;
 
-import com.company.framework.domain.Account;
 import lombok.Data;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Data
 public class Customer {
@@ -17,8 +13,6 @@ public class Customer {
     public Customer(String name) {
         this.name = name;
     }
-
-
 }
 
 

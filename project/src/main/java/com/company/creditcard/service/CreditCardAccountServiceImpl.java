@@ -1,7 +1,7 @@
 package com.company.creditcard.service;
 
 import com.company.framework.domain.Account;
-import com.company.common.AccountType;
+import com.company.framework.domain.AccountType;
 import com.company.creditcard.domain.CreditCardAccount;
 import com.company.framework.service.AccountServiceImpl;
 

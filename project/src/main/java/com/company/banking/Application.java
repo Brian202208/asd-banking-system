@@ -1,17 +1,14 @@
 package com.company.banking;
 
-import com.company.banking.domain.Customer;
-import com.company.banking.domain.bankaccount.BankAccount;
-import com.company.banking.domain.bankaccount.CompanyAccount;
-import com.company.banking.domain.bankaccount.PersonalAccount;
+import com.company.common.Customer;
+import com.company.banking.domain.BankAccount;
+import com.company.banking.domain.CompanyAccount;
 import com.company.banking.service.BankingServiceImpl;
 import com.company.banking.service.BankingService;
 import com.company.banking.strategy.CheckingAccountStrategy;
 import com.company.banking.strategy.SavingsAccountStrategy;
-import com.company.common.AccountType;
-import com.company.framework.factory.AccountFactory;
-import com.company.framework.factory.BankingAccountFactory;
-import com.company.framework.service.AccountServiceImpl;
+import com.company.framework.domain.AccountType;
+import com.company.patterns.factory.BankingAccountFactory;
 
 public class Application {
 	public static void main(String[] args) {

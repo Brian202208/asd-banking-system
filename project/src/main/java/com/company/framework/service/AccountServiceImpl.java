@@ -1,6 +1,6 @@
 package com.company.framework.service;
 
-import com.company.banking.integration.EmailSender;
+import com.company.common.integration.EmailSender;
 import com.company.framework.repository.AccountRepository;
 import com.company.framework.repository.AccountRepositoryImpl;
 import com.company.framework.domain.Account;

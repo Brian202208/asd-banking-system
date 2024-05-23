@@ -1,7 +1,7 @@
-package com.company.framework.factory;
+package com.company.patterns.factory;
 
-import com.company.banking.domain.Customer;
-import com.company.common.AccountType;
+import com.company.common.Customer;
+import com.company.framework.domain.AccountType;
 import com.company.creditcard.domain.CreditCardAccount;
 import com.company.framework.domain.Account;
 

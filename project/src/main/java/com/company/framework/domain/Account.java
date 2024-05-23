@@ -1,9 +1,8 @@
 package com.company.framework.domain;
 
-import com.company.banking.domain.Customer;
-import com.company.banking.observer.Observer;
-import com.company.banking.observer.Subject;
-import com.company.common.AccountType;
+import com.company.common.Customer;
+import com.company.patterns.observer.Observer;
+import com.company.patterns.observer.Subject;
 import lombok.Data;
 
 import java.util.ArrayList;

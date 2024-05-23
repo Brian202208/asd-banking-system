@@ -1,10 +1,8 @@
 package com.company.ui.ccard;
 
-import com.company.banking.domain.Address;
-import com.company.banking.domain.Customer;
-import com.company.creditcard.domain.CreditCardAccount;
+import com.company.common.Address;
+import com.company.common.Customer;
 import com.company.creditcard.service.CreditCardAccountServiceImpl;
-import com.company.framework.domain.Account;
 
 import javax.swing.*;
 import java.awt.*;
