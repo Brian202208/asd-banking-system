@@ -13,7 +13,7 @@ import com.company.framework.service.AccountServiceImpl;
 public class Application {
 	public static void main(String[] args) {
 
-		BankingService bankingService = new BankingServiceImpl();
+		BankingService bankingService = BankingServiceImpl.getInstance();
 		// create 2 accounts;
 		Customer customer = new Customer("James");
 
