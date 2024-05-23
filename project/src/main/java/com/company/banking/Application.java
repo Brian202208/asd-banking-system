@@ -25,7 +25,7 @@ public class Application {
 		// use account 1;
 		bankingService.deposit("1263862", 240);
 		bankingService.deposit("1263862", 529);
-		bankingService.withdraw("1263862", 800, "withdraw");
+		bankingService.withdraw("1263862", 800.00);
 
 		BankAccount companyAccount = new CompanyAccount("4253892");
 		companyAccount.setStrategy(new SavingsAccountStrategy());
