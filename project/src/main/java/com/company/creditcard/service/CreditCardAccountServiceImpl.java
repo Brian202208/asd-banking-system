@@ -11,7 +11,7 @@ public class CreditCardAccountServiceImpl extends AccountServiceImpl implements 
     //Same as withdraw
     @Override
     public void charge(String accountNumber, double amount) {
-        withdraw(accountNumber,amount,"charge");
+        super.withdraw(accountNumber,amount,"charge");
     }
 
     @Override
