@@ -1,12 +1,12 @@
 package com.company.banking.factory;
 
 import com.company.banking.domain.bankaccount.PersonalAccount;
-import com.company.banking.domain.Account;
+import com.company.framework.domain.Account;
 import com.company.banking.domain.Address;
 import com.company.banking.domain.Customer;
-import com.company.banking.strategy.CheckingsStrategy;
-import com.company.banking.strategy.InterestStrategy;
-import com.company.banking.strategy.SavingsStrategy;
+import com.company.banking.strategy.CheckingAccountStrategy;
+import com.company.banking.strategy.BankingStrategy;
+import com.company.banking.strategy.SavingsAccountStrategy;
 
 public class PersonalAccountFactory extends FactoryAccount {
     //TODO: it's a demo code to create personal account factory which need to change acccordingly
@@ -24,13 +24,13 @@ public class PersonalAccountFactory extends FactoryAccount {
         return  account;
     }
 
-    private InterestStrategy createStrategy(String strategy) {
+    private BankingStrategy createStrategy(String strategy) {
 
         switch (strategy) {
             case "Savings":
-                return new SavingsStrategy();
+                return new SavingsAccountStrategy();
             case "Checkings":
-                return new CheckingsStrategy();
+                return new CheckingAccountStrategy();
         }
         return null;
     }

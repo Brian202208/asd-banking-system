@@ -1,10 +1,10 @@
-package com.company.banking.dao;
+package com.company.framework.repository;
 
-import com.company.banking.domain.Account;
+import com.company.framework.domain.Account;
 
 import java.util.Collection;
 
-public interface AccountDAO {
+public interface AccountRepository {
     void saveAccount(Account account);
     void updateAccount(Account account);
     Account loadAccount(String accountnumber);

@@ -1,10 +1,8 @@
 package com.company.banking.observer;
 
-import com.company.banking.domain.bankaccount.CompanyAccount;
-import com.company.banking.domain.bankaccount.PersonalAccount;
-import com.company.banking.domain.AccountEntry;
+import com.company.framework.domain.Account;
+import com.company.framework.domain.AccountEntry;
 
 public interface Observer {
-    void update(CompanyAccount account, AccountEntry accountEntry);
-    void update(PersonalAccount account, AccountEntry accountEntry);
+    void update(Account account, AccountEntry accountEntry);
 }

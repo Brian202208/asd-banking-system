@@ -1,6 +1,6 @@
 package com.company.banking.observer;
 
-import com.company.banking.domain.AccountEntry;
+import com.company.framework.domain.AccountEntry;
 
 public interface Subject {
     void registerObserver(Observer observer);

@@ -1,11 +1,11 @@
-package com.company.banking.dao;
+package com.company.framework.repository;
 
-import com.company.banking.domain.Account;
+import com.company.framework.domain.Account;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class AccountDAOImpl implements AccountDAO {
+public class AccountRepositoryImpl implements AccountRepository {
     Collection<Account> accountlist = new ArrayList<Account>();
 
     public void saveAccount(Account account) {

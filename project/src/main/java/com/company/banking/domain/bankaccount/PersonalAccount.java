@@ -1,14 +1,11 @@
 package com.company.banking.domain.bankaccount;
 
-import com.company.banking.AccountStrategyType;
-import com.company.banking.domain.AccountEntry;
-import com.company.banking.domain.AccountType;
+import com.company.framework.domain.AccountEntry;
+import com.company.common.AccountType;
 import com.company.banking.observer.Observer;
 
+public class PersonalAccount extends BankAccount {
 
-public class PersonalAccount extends BankAccount{
-
-    private AccountStrategyType accountStrategyType;
     public PersonalAccount(String accountNumber) {
         super(accountNumber, AccountType.PERSONAL);
     }
@@ -19,9 +16,17 @@ public class PersonalAccount extends BankAccount{
     }
 
     @Override
-    public void notifyObserver(AccountEntry entry) {
-        for(Observer o: getObservers()){
-            o.update( this, entry);
+    public void notifyObserver(AccountEntry accountEntry) {
+        if (shouldSendEmail(accountEntry)) {
+            for (Observer o : getObservers()) {
+                o.update(this, accountEntry);
+            }
         }
+    }
+
+    private boolean shouldSendEmail(AccountEntry accountEntry) {
+        return accountEntry.getAmount() > 500
+                || accountEntry.getAmount() < -500
+                || this.getBalance()  < 0;
     }
 }
