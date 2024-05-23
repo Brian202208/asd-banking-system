@@ -1,10 +1,11 @@
 package com.company.ui.bank;
 
+import com.company.banking.service.BankingService;
 import com.company.banking.service.BankingServiceImpl;
 
 import javax.swing.*;
 import java.awt.*;
-
+import java.util.Objects;
 
 
 public class JDialog_Withdraw extends JDialog
@@ -12,7 +13,7 @@ public class JDialog_Withdraw extends JDialog
    
     private BankFrm parentframe;
     private String accnr;
-	private BankingServiceImpl bankingService;
+	private BankingService bankingService;
 
 	public JDialog_Withdraw(BankFrm parent, String aaccnr)
 	{
@@ -90,7 +91,9 @@ public class JDialog_Withdraw extends JDialog
 	void JButtonOK_actionPerformed(java.awt.event.ActionEvent event)
 	{
         parentframe.amountDeposit=JTextField_AMT.getText();
-		bankingService.withdraw(accnr, Double.parseDouble(parentframe.amountDeposit));
+		Double amount = Double.parseDouble(parentframe.amountDeposit);
+		if(!amount.isNaN())
+			bankingService.withdraw(accnr, amount);
 		dispose();
 	}
 

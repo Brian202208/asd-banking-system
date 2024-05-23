@@ -155,14 +155,14 @@ public class JDialog_AddCompAcc extends JDialog
 
 		parentframe.clientName=JTextField_NAME.getText();
 
-		Customer customer = new Customer(JTextField_NAME.getText());
+		Customer customer = new Customer(parentframe.clientName);
 		companyAccount.setCustomer(customer);
 
 		parentframe.street=JTextField_STR.getText();
 		parentframe.city=JTextField_CT.getText();
 		parentframe.zip=JTextField_ZIP.getText();
 		parentframe.state=JTextField_ST.getText();
-		Address address = new Address(JTextField_STR.getText(), JTextField_CT.getText(), JTextField_ST.getText(), JTextField_ZIP.getText());
+		Address address = new Address(parentframe.street, parentframe.city,parentframe.street, JTextField_ZIP.getText());
 		customer.setAddress(address);
 
 		if (JRadioButton_Chk.isSelected()){
