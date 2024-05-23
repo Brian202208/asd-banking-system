@@ -11,6 +11,8 @@ import com.company.banking.service.BankingService;
 import com.company.banking.service.BankingServiceImpl;
 import com.company.banking.strategy.CheckingAccountStrategy;
 import com.company.banking.strategy.SavingsAccountStrategy;
+import com.company.common.AccountType;
+import com.company.framework.factory.BankingAccountFactory;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,6 +21,7 @@ public class JDialog_AddPAcc extends JDialog
 {
     private BankFrm parentframe;
 	private BankingService bankingService;
+	private BankingAccountFactory accountFactory;
 
 
 	public JDialog_AddPAcc(BankFrm parent)
@@ -26,6 +29,7 @@ public class JDialog_AddPAcc extends JDialog
 		super(parent);
 		parentframe=parent;
 		bankingService = BankingServiceImpl.getInstance();
+		accountFactory = new BankingAccountFactory();
 
 
 		
@@ -190,10 +194,11 @@ public class JDialog_AddPAcc extends JDialog
 
 
        parentframe.accountnr=JTextField_ACNR.getText();
-		BankAccount personalAccount1 = new PersonalAccount(JTextField_ACNR.getText());
-
-       parentframe.clientName=JTextField_NAME.getText();
+		parentframe.clientName=JTextField_NAME.getText();
 		Customer customer = new Customer(JTextField_NAME.getText());
+		BankAccount personalAccount1 = accountFactory.createAccount(AccountType.PERSONAL,parentframe.accountnr,customer);
+
+
 		personalAccount1.setCustomer(customer);
 
 		parentframe.street=JTextField_STR.getText();
@@ -202,6 +207,7 @@ public class JDialog_AddPAcc extends JDialog
 		parentframe.state=JTextField_ST.getText();
 		Address address = new Address(JTextField_STR.getText(), JTextField_CT.getText(), JTextField_ST.getText(), JTextField_ZIP.getText());
 		customer.setAddress(address);
+
 
        if (JRadioButton_Chk.isSelected()){
            parentframe.accountType="Ch";

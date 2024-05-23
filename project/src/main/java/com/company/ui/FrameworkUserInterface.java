@@ -9,13 +9,13 @@ import javax.swing.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-public class MainWindow extends JFrame {
+public class FrameworkUserInterface extends JFrame {
     private BankFrm bankFrm;
     private CardFrm cardFrm;
 
-    public MainWindow(BankingServiceImpl bankAccountService, CreditCardAccountServiceImpl creditCardService) {
-        JButton bankButton = new JButton("Open Bank Application");
-        JButton cardButton = new JButton("Open Card Application");
+    public FrameworkUserInterface(BankingServiceImpl bankAccountService, CreditCardAccountServiceImpl creditCardService) {
+        JButton bankButton = new JButton("Go to Bank Application");
+        JButton cardButton = new JButton("Go to Credit Card Application");
 
         bankButton.addActionListener(e -> {
             if (bankFrm == null || !bankFrm.isVisible()) {
