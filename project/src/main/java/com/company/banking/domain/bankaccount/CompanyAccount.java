@@ -14,10 +14,5 @@ public class CompanyAccount extends BankAccount {
         return AccountType.COMPANY;
     }
 
-    @Override
-    public void notifyObserver(AccountEntry entry) {
-        for (Observer o : getObservers()) {
-            o.update(this, entry);
-        }
-    }
+
 }

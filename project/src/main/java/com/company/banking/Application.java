@@ -8,6 +8,9 @@ import com.company.banking.service.BankingServiceImpl;
 import com.company.banking.service.BankingService;
 import com.company.banking.strategy.CheckingAccountStrategy;
 import com.company.banking.strategy.SavingsAccountStrategy;
+import com.company.common.AccountType;
+import com.company.framework.factory.AccountFactory;
+import com.company.framework.factory.BankingAccountFactory;
 import com.company.framework.service.AccountServiceImpl;
 
 public class Application {
@@ -17,9 +20,11 @@ public class Application {
 		// create 2 accounts;
 		Customer customer = new Customer("James");
 
-		BankAccount personalAccount1 = new PersonalAccount("1263862");
+		BankingAccountFactory factory = new BankingAccountFactory();
+
+		BankAccount personalAccount1 = factory.createAccount(AccountType.PERSONAL,"1263862",customer);
+
 		personalAccount1.setStrategy(new CheckingAccountStrategy());
-		personalAccount1.setCustomer(customer);
 
 		bankingService.createAccount(personalAccount1);
 		// use account 1;
