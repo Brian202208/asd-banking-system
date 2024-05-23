@@ -1,5 +1,6 @@
 package com.company.ui.bank;
 
+import com.company.banking.service.BankingService;
 import com.company.banking.service.BankingServiceImpl;
 
 import javax.swing.*;
@@ -11,7 +12,7 @@ public class JDialog_Deposit extends JDialog
 
     private BankFrm parentframe;
     private String accnr;
-	private BankingServiceImpl bankingService;
+	private BankingService bankingService;
     
 	public JDialog_Deposit(BankFrm parent, String aaccnr)
 	{

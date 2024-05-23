@@ -8,6 +8,8 @@ import com.company.framework.service.AccountServiceImpl;
 
 public class CreditCardAccountServiceImpl extends AccountServiceImpl implements CreditCardAccountService {
 
+    //Singleton Pattern used -------------->
+
     private static CreditCardAccountServiceImpl instance = null;
     private CreditCardAccountServiceImpl() {}
     public static CreditCardAccountServiceImpl getInstance() {
@@ -16,6 +18,8 @@ public class CreditCardAccountServiceImpl extends AccountServiceImpl implements 
         }
         return instance;
     }
+    //------------------------------------->
+
 
     //Same as withdraw
     @Override

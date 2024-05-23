@@ -9,7 +9,10 @@ import java.util.Collection;
 
 
 public class BankingServiceImpl extends AccountServiceImpl  implements BankingService{
+
+	//Singleton Pattern used -------------->
 	private static BankingServiceImpl instance = null;
+
 	private BankingServiceImpl() {}
 	public static BankingServiceImpl getInstance() {
 		if (instance == null) {
@@ -17,6 +20,7 @@ public class BankingServiceImpl extends AccountServiceImpl  implements BankingSe
 		}
 		return instance;
 	}
+	//------------------------------------->
 
 	public void withdraw(String accountNumber, double amount) {
 		withdraw(accountNumber,amount,"Withdraw");
