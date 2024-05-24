@@ -1,14 +1,11 @@
 package com.company.ui.ccard.components;
 
-import com.company.banking.strategy.CheckingAccountStrategy;
-import com.company.banking.strategy.SavingsAccountStrategy;
 import com.company.common.Address;
 import com.company.common.Customer;
 import com.company.creditcard.domain.CreditCardAccount;
 import com.company.creditcard.strategy.BronzeCardStrategy;
 import com.company.creditcard.strategy.GoldCardStrategy;
 import com.company.creditcard.strategy.SilverCardStrategy;
-import com.company.framework.domain.Account;
 import com.company.framework.domain.AccountType;
 import com.company.patterns.factory.CreditCardAccountFactory;
 import com.company.ui.ccard.CardFrm;
@@ -17,7 +14,6 @@ import com.company.ui.framework.components.JDialog_AddAccount;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
-import java.util.Objects;
 
 public class JDialog_AddCCAccount extends JDialog_AddAccount {
     JTextField JTextField_CCNR;
@@ -144,8 +140,8 @@ public class JDialog_AddCCAccount extends JDialog_AddAccount {
 
     private void addEntryInTable(CreditCardAccount account) {
         System.out.println("rowcount " + parentframe.getModel().getRowCount());
-        parentframe.getRowData()[0] = account.getCustomer().getName();
-        parentframe.getRowData()[1] = account.getAccountNumber();
+        parentframe.getRowData()[0] = account.getAccountNumber();
+        parentframe.getRowData()[1] = account.getCustomer().getName();
         parentframe.getRowData()[2] = account.getExpiryDate();
         parentframe.getRowData()[3] = account.getAccountType();
         parentframe.getRowData()[4] = account.getBalance();

@@ -84,8 +84,8 @@ public class CardFrm extends BaseUIFrame {
 
 	@Override
 	protected void addColumns() {
-		model.addColumn("Name");
 		model.addColumn("CC number");
+		model.addColumn("Name");
 		model.addColumn("Exp date");
 		model.addColumn("Type");
 		model.addColumn("Balance");
