@@ -2,6 +2,7 @@ package com.company.ui.framework.components;
 
 import com.company.banking.service.BankingService;
 import com.company.banking.service.BankingServiceImpl;
+import com.company.patterns.factory.AccountFactory;
 import com.company.patterns.factory.BankingAccountFactory;
 import com.company.ui.framework.BaseUIFrame;
 
@@ -10,7 +11,7 @@ import javax.swing.*;
 public abstract class JDialog_AddAccount extends JDialog {
     protected BaseUIFrame parentframe;
     protected BankingService bankingService;
-    protected BankingAccountFactory accountFactory;
+    protected AccountFactory accountFactory;
 
     protected JRadioButton JRadioButton_Chk;
     protected JRadioButton JRadioButton_Sav;
@@ -36,7 +37,6 @@ public abstract class JDialog_AddAccount extends JDialog {
         super(parent);
         parentframe = parent;
         bankingService = BankingServiceImpl.getInstance();
-        accountFactory = new BankingAccountFactory();
 
         // Initialize common components
         JRadioButton_Chk = new JRadioButton();

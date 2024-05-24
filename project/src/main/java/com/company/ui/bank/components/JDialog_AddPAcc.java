@@ -7,6 +7,7 @@ import com.company.common.Address;
 import com.company.common.Customer;
 import com.company.framework.domain.Account;
 import com.company.framework.domain.AccountType;
+import com.company.patterns.factory.BankingAccountFactory;
 import com.company.ui.bank.BankFrm;
 import com.company.ui.framework.components.JDialog_AddAccount;
 
@@ -21,6 +22,7 @@ public class JDialog_AddPAcc extends JDialog_AddAccount {
 
     public JDialog_AddPAcc(BankFrm parent) {
         super(parent);
+        accountFactory = new BankingAccountFactory();
         // Additional initialization specific to JDialog_AddPAcc
         setTitle("Add personal account");
         setModal(true);
@@ -145,7 +147,8 @@ public class JDialog_AddPAcc extends JDialog_AddAccount {
         customer.setAddress(createNewAddress());
         String accountNumber = JTextField_ACNR.getText();
 
-        BankAccount account = accountFactory.createAccount(AccountType.PERSONAL, accountNumber, customer);
+        BankAccount account = (BankAccount) accountFactory.createAccount(AccountType.PERSONAL, accountNumber, customer);
+
         if(JRadioButton_Chk.isSelected()){
             account.setStrategy(new CheckingAccountStrategy());
         } else {

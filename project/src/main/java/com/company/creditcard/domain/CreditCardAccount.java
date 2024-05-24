@@ -16,6 +16,7 @@ import static java.time.temporal.TemporalAdjusters.lastDayOfMonth;
 @Setter
 public class CreditCardAccount extends Account {
     CreditCardStrategy strategy;
+    String expiryDate;
 
     public CreditCardAccount(String accountNumber) {
         super(accountNumber, AccountType.CREDIT);

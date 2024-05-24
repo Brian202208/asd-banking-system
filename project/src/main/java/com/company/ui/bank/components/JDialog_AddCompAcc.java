@@ -7,6 +7,7 @@ import com.company.common.Address;
 import com.company.common.Customer;
 import com.company.framework.domain.Account;
 import com.company.framework.domain.AccountType;
+import com.company.patterns.factory.BankingAccountFactory;
 import com.company.ui.bank.BankFrm;
 import com.company.ui.framework.components.JDialog_AddAccount;
 
@@ -22,6 +23,7 @@ public class JDialog_AddCompAcc extends JDialog_AddAccount {
     public JDialog_AddCompAcc(BankFrm parent) {
         super(parent);
         // Additional initialization specific to JDialog_AddCompAcc
+        accountFactory = new BankingAccountFactory();
         setTitle("Add company account");
         setModal(true);
 
@@ -118,7 +120,6 @@ public class JDialog_AddCompAcc extends JDialog_AddAccount {
     @Override
     protected void JButtonOK_actionPerformed(ActionEvent event) {
         // Implement OK button action specific to JDialog_AddCompAcc
-        System.out.println("OKAY PRESSED");
         addEntryInTable(createNewAccout());
         dispose();
     }
@@ -141,7 +142,7 @@ public class JDialog_AddCompAcc extends JDialog_AddAccount {
         customer.setAddress(createNewAddress());
         String accountNumber = JTextField_ACNR.getText();
 
-        BankAccount account = accountFactory.createAccount(AccountType.COMPANY, accountNumber, customer);
+        BankAccount account = (BankAccount) accountFactory.createAccount(AccountType.COMPANY, accountNumber, customer);
         if(JRadioButton_Chk.isSelected()){
             account.setStrategy(new CheckingAccountStrategy());
         } else {
