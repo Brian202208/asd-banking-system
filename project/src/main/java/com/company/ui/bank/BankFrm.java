@@ -3,6 +3,8 @@ package com.company.ui.bank;
 import com.company.banking.service.BankingServiceImpl;
 import com.company.ui.bank.components.JDialog_AddCompAcc;
 import com.company.ui.bank.components.JDialog_AddPAcc;
+import com.company.ui.bank.components.JDialog_BankAcc_Deposit;
+import com.company.ui.bank.components.JDialog_BankAcc_Withdraw;
 import com.company.ui.framework.BaseUIFrame;
 
 import javax.swing.*;
@@ -66,10 +68,27 @@ public class BankFrm extends BaseUIFrame {
     }
 
     private void withdrawButtonAction(ActionEvent actionEvent) {
+        int selection = table.getSelectionModel().getMinSelectionIndex();
+        if (selection >=0) {
+            String accnr = (String) model.getValueAt(selection, 0);
+
+            //Show the dialog for adding withdraw amount for the current mane
+            JDialog_BankAcc_Withdraw dp = new JDialog_BankAcc_Withdraw(this, "accnr");
+            dp.setBounds(430, 15, 275, 140);
+            dp.show();
+        }
     }
 
     private void depositButtonAction(ActionEvent actionEvent) {
-        
+        int selection = table.getSelectionModel().getMinSelectionIndex();
+        if (selection >=0) {
+            String accnr = (String) model.getValueAt(selection, 0);
+
+            //Show the dialog for adding withdraw amount for the current mane
+            JDialog_BankAcc_Deposit dp = new JDialog_BankAcc_Deposit(this, accnr);
+            dp.setBounds(430, 15, 275, 140);
+            dp.show();
+        }
     }
 
     private void addCompanyAccountAction(ActionEvent actionEvent) {
