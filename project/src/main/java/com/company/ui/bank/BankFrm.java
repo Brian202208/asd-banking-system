@@ -1,8 +1,8 @@
 package com.company.ui.bank;
 
 import com.company.banking.service.BankingServiceImpl;
-import com.company.ui.bank.components.JDialog__AddCompAcc;
-import com.company.ui.bank.components.JDialog__AddPAcc;
+import com.company.ui.bank.components.JDialog_AddCompAcc;
+import com.company.ui.bank.components.JDialog_AddPAcc;
 import com.company.ui.framework.BaseUIFrame;
 
 import javax.swing.*;
@@ -73,11 +73,18 @@ public class BankFrm extends BaseUIFrame {
     }
 
     private void addCompanyAccountAction(ActionEvent actionEvent) {
+        JDialog_AddCompAcc pac = new JDialog_AddCompAcc(this);
+        pac.setBounds(450, 20, 300, 330);
+        pac.show();
+
+        if (newAccount) {
+            // add row to table
+            // Your implementation here
+        }
     }
 
     private void addPersonalAccountAction(ActionEvent event) {
-        System.out.println("Hello");
-        JDialog__AddPAcc pac = new JDialog__AddPAcc(this);
+        JDialog_AddPAcc pac = new JDialog_AddPAcc(this);
         pac.setBounds(450, 20, 300, 330);
         pac.show();
 

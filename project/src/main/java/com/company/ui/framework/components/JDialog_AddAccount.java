@@ -1,23 +1,20 @@
 package com.company.ui.framework.components;
 
-
 import com.company.banking.service.BankingService;
 import com.company.banking.service.BankingServiceImpl;
 import com.company.patterns.factory.BankingAccountFactory;
-import com.company.ui.bank.BankFrm;
+import com.company.ui.framework.BaseUIFrame;
 
 import javax.swing.*;
-import java.awt.*;
 
 public abstract class JDialog_AddAccount extends JDialog {
-    protected BankFrm parentframe;
+    protected BaseUIFrame parentframe;
     protected BankingService bankingService;
     protected BankingAccountFactory accountFactory;
 
     protected JRadioButton JRadioButton_Chk;
     protected JRadioButton JRadioButton_Sav;
     protected JRadioButton JRadioButton_Extra; // Additional radio button specific to JDialog_AddCCAccount
-    protected JLabel JLabel0;
     protected JLabel JLabel1;
     protected JLabel JLabel2;
     protected JLabel JLabel3;
@@ -25,7 +22,6 @@ public abstract class JDialog_AddAccount extends JDialog {
     protected JLabel JLabel5;
     protected JLabel JLabel6;
     protected JLabel JLabel7;
-    protected JTextField JTextField_ACNR;
     protected JTextField JTextField_NAME;
     protected JTextField JTextField_CT;
     protected JTextField JTextField_ST;
@@ -33,8 +29,10 @@ public abstract class JDialog_AddAccount extends JDialog {
     protected JTextField JTextField_ZIP;
     protected JButton JButton_OK;
     protected JButton JButton_Cancel;
+    protected JLabel JLabel8;
+    protected JTextField JTextField_ACNR;
 
-    public JDialog_AddAccount(BankFrm parent) {
+    public JDialog_AddAccount(BaseUIFrame parent) {
         super(parent);
         parentframe = parent;
         bankingService = BankingServiceImpl.getInstance();
@@ -43,68 +41,26 @@ public abstract class JDialog_AddAccount extends JDialog {
         // Initialize common components
         JRadioButton_Chk = new JRadioButton();
         JRadioButton_Sav = new JRadioButton();
-
-        //---- Label ------>
-
-
-
-        JLabel1 = new JLabel("name");
-        jLabelConfig(JLabel1, 84,48,24);
-
-        JLabel2 = new JLabel("Street");
-        jLabelConfig(JLabel2, 108,48,24);
-
-        JLabel3 = new JLabel("City");
-
-        jLabelConfig(JLabel3, 132,48,24);
-
-        JLabel4 = new JLabel("State");
-
-        jLabelConfig(JLabel4, 156,48,24);
-
-        JLabel5 = new JLabel("Zip");
-
-        jLabelConfig(JLabel5, 180,48,24);
-
-        JLabel6 = new JLabel("Birth Date");
-
-        jLabelConfig(JLabel6, 204,96,24);
-
-        JLabel7 = new JLabel("Email");
-
-        jLabelConfig(JLabel7, 228,48,24);
-
-//        JLabel0 = new JLabel("Acc nr");
-//        jLabelConfig(JLabel0, 72,48,24);
-        //---- Label ------/
-
-        //--- J textField ---->
-
-//        JTextField_ACNR = new JTextField();
-//        jTextFieldConfig(JTextField_ACNR,60);
-
+        JLabel1 = new JLabel();
+        JLabel2 = new JLabel();
+        JLabel3 = new JLabel();
+        JLabel4 = new JLabel();
+        JLabel5 = new JLabel();
+        JLabel6 = new JLabel();
+        JLabel7 = new JLabel();
         JTextField_NAME = new JTextField();
-        jTextFieldConfig(JTextField_NAME,84);
-
         JTextField_CT = new JTextField();
-        jTextFieldConfig(JTextField_CT,132);
-
         JTextField_ST = new JTextField();
-        jTextFieldConfig(JTextField_ST,156);
-
         JTextField_STR = new JTextField();
-        jTextFieldConfig(JTextField_STR,108);
-
         JTextField_ZIP = new JTextField();
-        jTextFieldConfig(JTextField_ZIP,60);
-
         JButton_OK = new JButton();
         JButton_Cancel = new JButton();
+
+        JLabel8 = new JLabel();
         JTextField_ACNR = new JTextField();
 
         // Add common components to content pane
         getContentPane().setLayout(null);
-
         getContentPane().add(JRadioButton_Chk);
         getContentPane().add(JRadioButton_Sav);
         getContentPane().add(JButton_OK);
@@ -119,11 +75,11 @@ public abstract class JDialog_AddAccount extends JDialog {
         JButton_OK.addActionListener(lSymAction);
         JButton_Cancel.addActionListener(lSymAction);
 
-        // Initialize uncommon components
-        initUnCommonComponents();
+        // Initialize common components
+        initCommonComponents();
     }
 
-    protected abstract void initUnCommonComponents();
+    protected abstract void initCommonComponents();
 
     // Inner classes for listeners
     class SymMouse extends java.awt.event.MouseAdapter {
@@ -168,15 +124,16 @@ public abstract class JDialog_AddAccount extends JDialog {
         // Make this frame invisible if Cancel button is clicked
         dispose();
     }
-
-    protected void jLabelConfig(JLabel jLabel, int y, int width, int height){
-        jLabel.setForeground(Color.black);
-        jLabel.setBounds(12,y,width,height);
-        getContentPane().add(jLabel);
-    }
-
-    protected void jTextFieldConfig(JTextField jTextField, int y){
-        jTextField.setBounds(84,y,156,20);
-        getContentPane().add(jTextField);
-    }
 }
+
+//    protected void jLabelConfig(JLabel jLabel, int y, int width, int height){
+//        jLabel.setForeground(Color.black);
+//        jLabel.setBounds(12,y,width,height);
+//        getContentPane().add(jLabel);
+//    }
+//
+//    protected void jTextFieldConfig(JTextField jTextField, int y){
+//        jTextField.setBounds(84,y,156,20);
+//        getContentPane().add(jTextField);
+//    }
+//
