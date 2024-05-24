@@ -1,6 +1,7 @@
 package com.company.ui.bank.components;
 
 import com.company.ui.bank.BankFrm;
+import com.company.ui.framework.BaseUIFrame;
 import com.company.ui.framework.components.JDialog_AddAccount;
 
 import javax.swing.*;

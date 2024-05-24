@@ -1,6 +1,4 @@
 package com.company.ui.framework.components;
-import com.company.creditcard.service.CreditCardAccountServiceImpl;
-import com.company.ui.ccard.CardFrm;
 import com.company.ui.framework.BaseUIFrame;
 
 import javax.swing.*;
@@ -15,7 +13,6 @@ public abstract class JDialog_Transaction extends JDialog {
     JTextField JTextField_AMT = new JTextField();
     JButton JButton_OK = new JButton();
     JButton JButton_Cancel = new JButton();
-    protected CreditCardAccountServiceImpl creditCardAccountService;
 
 
 
@@ -23,7 +20,6 @@ public abstract class JDialog_Transaction extends JDialog {
         super(parent);
         parentframe = parent;
         name = aname;
-        creditCardAccountService = CreditCardAccountServiceImpl.getInstance();
 
         setTitle(title);
         setModal(true);
@@ -61,10 +57,9 @@ public abstract class JDialog_Transaction extends JDialog {
 
     protected abstract void JButtonOK_actionPerformed(java.awt.event.ActionEvent event);
 
-    void JButtonCalcel_actionPerformed(java.awt.event.ActionEvent event) {
+    void JButtonCancel_actionPerformed(java.awt.event.ActionEvent event) {
         dispose();
     }
-
 
 
     class SymAction implements java.awt.event.ActionListener {
@@ -73,7 +68,7 @@ public abstract class JDialog_Transaction extends JDialog {
             if (object == JButton_OK)
                 JButtonOK_actionPerformed(event);
             else if (object == JButton_Cancel)
-                JButtonCalcel_actionPerformed(event);
+                JButtonCancel_actionPerformed(event);
         }
     }
 }

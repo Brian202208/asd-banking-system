@@ -1,6 +1,7 @@
 package com.company.ui.framework;
 
 import com.company.framework.domain.AccountType;
+import lombok.Getter;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -11,6 +12,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 public abstract class BaseUIFrame extends JFrame {
+    @Getter
     protected DefaultTableModel model;
     protected JTable table;
     protected JScrollPane scrollPane;
