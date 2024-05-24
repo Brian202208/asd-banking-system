@@ -7,7 +7,7 @@ import com.company.framework.domain.Account;
 
 public class CreditCardAccountFactory extends AccountFactory{
     @Override
-    public Account createAccount(AccountType type, String acc, Customer customer) {
+    public CreditCardAccount createAccount(AccountType type, String acc, Customer customer) {
         CreditCardAccount creditCardAccount =  new CreditCardAccount(acc);
         creditCardAccount.setCustomer(customer);
         return creditCardAccount;
