@@ -19,7 +19,7 @@ public class JDialog_BankAcc_Withdraw extends JDialog_Transaction {
         if(selectionIndex >= 0){
             String accountNumber = (String)bankFrm.getModel().getValueAt(selectionIndex, 0);
             String amount = JTextField_AMT.getText();
-            bankFrm.getBankService().deposit(accountNumber, Objects.isNull(amount) ? 0: Double.parseDouble(amount)*(-1));
+            bankFrm.getBankService().withdraw(accountNumber, Double.parseDouble(amount));
             Account account = bankFrm.getBankService().getAccount(accountNumber);
             bankFrm.getTable().setValueAt(account.getBalance(),selectionIndex, 5);
         }

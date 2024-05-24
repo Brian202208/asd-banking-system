@@ -1,8 +1,7 @@
 package com.company.common;
 
-import com.company.framework.domain.Account;
-import lombok.Data;
 
+import lombok.Data;
 import java.io.Serial;
 import java.io.Serializable;
 

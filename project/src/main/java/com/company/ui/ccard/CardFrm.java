@@ -78,6 +78,7 @@ public class CardFrm extends BaseUIFrame {
 	}
 
 	private void generateBillButtonAction(ActionEvent actionEvent) {
+		creditCardAccountService.generateMonthlyBillingReport();
 	}
 
 

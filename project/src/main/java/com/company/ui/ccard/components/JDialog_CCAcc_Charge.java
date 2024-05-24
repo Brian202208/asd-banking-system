@@ -21,7 +21,9 @@ public class JDialog_CCAcc_Charge extends JDialog_Transaction {
         if(selectionIndex >= 0){
             String accountNumber = (String)cardFrm.getModel().getValueAt(selectionIndex, 0);
             String amount = JTextField_AMT.getText();
-            cardFrm.getCreditCardAccountService().deposit(accountNumber, Objects.isNull(amount) ? 0: Double.parseDouble(amount)*(-1));
+            System.out.println("Charging amount amount");
+
+            cardFrm.getCreditCardAccountService().charge(accountNumber, Double.parseDouble(amount));
             Account account = cardFrm.getCreditCardAccountService().getAccount(accountNumber);
             cardFrm.getTable().setValueAt(account.getBalance(),selectionIndex, 4);
         }

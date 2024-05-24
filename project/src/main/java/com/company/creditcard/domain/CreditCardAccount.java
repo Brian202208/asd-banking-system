@@ -16,16 +16,12 @@ import static java.time.temporal.TemporalAdjusters.lastDayOfMonth;
 
 @Setter
 public class CreditCardAccount extends Account {
-    CreditCardStrategy strategy;
+    private CreditCardStrategy strategy;
     @Getter
     String expiryDate;
 
     public CreditCardAccount(String accountNumber) {
         super(accountNumber, AccountType.CREDIT);
-    }
-
-    public void setCreditCardStrategy(CreditCardStrategy strategy) {
-        this.strategy = strategy;
     }
 
 
@@ -66,7 +62,7 @@ public class CreditCardAccount extends Account {
         LocalDate current = LocalDate.now();
         double sum = 0.0;
         for (AccountEntry entry : getEntryList()) {
-            if (entry.getDescription().contains("Charge")
+            if (entry.getDescription().contains("charge")
                     && entry.getDate().isAfter(current.with(firstDayOfMonth()))) {
                 sum += entry.getAmount();
             }
@@ -87,8 +83,6 @@ public class CreditCardAccount extends Account {
     }
 
     private double newBalance() {
-        // 0 - 769 - 500
-        //
         return previousBalance() -  totalCredits() + totalCharges() + minimumPayment() * (previousBalance() - totalCredits());
     }
 

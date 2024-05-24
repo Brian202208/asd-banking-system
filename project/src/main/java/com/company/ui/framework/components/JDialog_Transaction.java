@@ -26,7 +26,7 @@ public abstract class JDialog_Transaction extends JDialog {
         getContentPane().setLayout(null);
         setSize(277, 134);
         setVisible(false);
-        JLabel1.setText("Name");
+        JLabel1.setText("Account Number");
         getContentPane().add(JLabel1);
         JLabel1.setForeground(Color.black);
         JLabel1.setBounds(12, 12, 48, 24);

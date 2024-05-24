@@ -15,13 +15,14 @@ public class JDialog_CCAcc_Deposit extends JDialog_Transaction {
 
     @Override
     protected void JButtonOK_actionPerformed(java.awt.event.ActionEvent event) {
+
         CardFrm cardFrm = (CardFrm) parentframe;
         int selectionIndex = cardFrm.getTable().getSelectionModel().getMinSelectionIndex();
         if(selectionIndex >= 0){
             String accountNumber = (String)cardFrm.getModel().getValueAt(selectionIndex, 0);
             String amount = JTextField_AMT.getText();
-
-            cardFrm.getCreditCardAccountService().charge(accountNumber, Objects.isNull(amount) ? 0: Double.parseDouble(amount)*(-1));
+            System.out.println("Depositing amount");
+            cardFrm.getCreditCardAccountService().deposit(accountNumber,Double.parseDouble(amount));
 
             Account account = cardFrm.getCreditCardAccountService().getAccount(accountNumber);
             cardFrm.getTable().setValueAt(account.getBalance(),selectionIndex, 4);
