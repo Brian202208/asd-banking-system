@@ -1,12 +1,19 @@
 package com.company.ui.ccard;
 
+import com.company.banking.service.BankingService;
+import com.company.creditcard.service.CreditCardAccountService;
+import com.company.creditcard.service.CreditCardAccountServiceImpl;
 import com.company.ui.bank.BankFrm;
+import com.company.ui.bank.components.JDialog_AddPAcc;
 import com.company.ui.bank.components.JDialog_BankAcc_Deposit;
 import com.company.ui.bank.components.JDialog_BankAcc_Withdraw;
+import com.company.ui.ccard.components.JDialog_AddCCAccount;
 import com.company.ui.ccard.components.JDialog_CCAcc_Charge;
 import com.company.ui.ccard.components.JDialog_CCAcc_Deposit;
 import com.company.ui.framework.BaseUIFrame;
+import com.company.ui.framework.components.JDialog_AddAccount;
 import com.company.ui.framework.components.JDialog_Transaction;
+import lombok.Getter;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -22,6 +29,9 @@ public class CardFrm extends BaseUIFrame {
 	private JButton btnDeposit;
 	private JButton btnWithdraw;
 	private JButton btnExit;
+	@Getter
+	private CreditCardAccountService creditCardAccountService;
+
 
 	public static void main(String[] args) {
 		try {
@@ -38,7 +48,7 @@ public class CardFrm extends BaseUIFrame {
 
 	public CardFrm() {
 		super();
-
+		creditCardAccountService = CreditCardAccountServiceImpl.getInstance();
 		btnAddCCAccount = new JButton("Add Credit-card account");
 		btnGenerateBill = new JButton("Generate Monthly bills");
 		btnDeposit = new JButton("Deposit");
@@ -62,6 +72,9 @@ public class CardFrm extends BaseUIFrame {
 
 
 	private void addCCAccountButtonAction(ActionEvent actionEvent) {
+		JDialog_AddAccount pac = new JDialog_AddCCAccount(this);
+		pac.setBounds(450, 20, 300, 330);
+		pac.show();
 	}
 
 	private void generateBillButtonAction(ActionEvent actionEvent) {

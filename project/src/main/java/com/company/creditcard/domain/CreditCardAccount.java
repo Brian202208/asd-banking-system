@@ -5,6 +5,7 @@ import com.company.framework.domain.AccountEntry;
 import com.company.patterns.observer.Observer;
 import com.company.framework.domain.AccountType;
 import com.company.creditcard.strategy.CreditCardStrategy;
+import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDate;
@@ -16,6 +17,7 @@ import static java.time.temporal.TemporalAdjusters.lastDayOfMonth;
 @Setter
 public class CreditCardAccount extends Account {
     CreditCardStrategy strategy;
+    @Getter
     String expiryDate;
 
     public CreditCardAccount(String accountNumber) {

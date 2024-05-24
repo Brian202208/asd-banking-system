@@ -1,9 +1,7 @@
 package com.company.ui.framework;
 
-import com.company.ui.ccard.components.JDialog_CCAcc_Deposit;
 import com.company.ui.framework.components.JDialog_Transaction;
 import lombok.Getter;
-
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
@@ -21,6 +19,7 @@ public abstract class BaseUIFrame extends JFrame {
     @Getter
     protected Object[] rowData;
     protected boolean newAccount;
+
 
     public BaseUIFrame() {
         setTitle("Bank Application.");

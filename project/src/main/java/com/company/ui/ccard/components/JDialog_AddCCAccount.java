@@ -1,12 +1,16 @@
 package com.company.ui.ccard.components;
 
+import com.company.banking.strategy.CheckingAccountStrategy;
+import com.company.banking.strategy.SavingsAccountStrategy;
 import com.company.common.Address;
 import com.company.common.Customer;
 import com.company.creditcard.domain.CreditCardAccount;
+import com.company.creditcard.strategy.BronzeCardStrategy;
+import com.company.creditcard.strategy.GoldCardStrategy;
+import com.company.creditcard.strategy.SilverCardStrategy;
 import com.company.framework.domain.Account;
 import com.company.framework.domain.AccountType;
 import com.company.patterns.factory.CreditCardAccountFactory;
-import com.company.ui.bank.BankFrm;
 import com.company.ui.ccard.CardFrm;
 import com.company.ui.framework.components.JDialog_AddAccount;
 
@@ -18,7 +22,6 @@ import java.util.Objects;
 public class JDialog_AddCCAccount extends JDialog_AddAccount {
     JTextField JTextField_CCNR;
     JTextField JTextField_ExpDate;
-    JRadioButton jRadioButtonBronze;
 
     public JDialog_AddCCAccount(CardFrm parent) {
         super(parent);
@@ -29,7 +32,7 @@ public class JDialog_AddCCAccount extends JDialog_AddAccount {
 
         JTextField_CCNR = new JTextField();
         JTextField_ExpDate = new JTextField();
-        jRadioButtonBronze = new JRadioButton(); // Additional radio button
+        JRadioButton_Extra = new JRadioButton(); // Additional radio button
 
 
         getContentPane().add(JTextField_CCNR);
@@ -38,12 +41,11 @@ public class JDialog_AddCCAccount extends JDialog_AddAccount {
         JTextField_ExpDate.setBounds(84,276,156,20);
 
         //Radio Button---->
-
         getContentPane().add(JRadioButton_Extra);
-        jRadioButtonBronze.setText("Bronze");
-        jRadioButtonBronze.setActionCommand("Savings");
-        getContentPane().add(jRadioButtonBronze);
-        jRadioButtonBronze.setBounds(36,60,84,24);
+        JRadioButton_Extra.setText("Bronze");
+        JRadioButton_Extra.setActionCommand("Savings");
+        getContentPane().add(JRadioButton_Extra);
+        JRadioButton_Extra.setBounds(36,60,84,24);
     }
 
     @Override
@@ -111,19 +113,21 @@ public class JDialog_AddCCAccount extends JDialog_AddAccount {
         //Button----------->
         JButton_OK.setText("OK");
         JButton_OK.setActionCommand("OK");
-        getContentPane().add(JButton_OK);
         JButton_OK.setBounds(48,312,84,24);
+
         JButton_Cancel.setText("Cancel");
         JButton_Cancel.setActionCommand("Cancel");
-        getContentPane().add(JButton_Cancel);
+        JButton_Cancel.setBounds(156,312,84,24);
         //-------->
 
 
-
-
-        JLabel8.setText("CC number");
+        //------The confusing one---->
+        JLabel8.setText("Email");
         getContentPane().add(JLabel8);
+        JLabel8.setForeground(java.awt.Color.black);
+        JLabel8.setBounds(12,228,48,24);
         getContentPane().add(JTextField_ACNR);
+        JTextField_ACNR.setBounds(84,228,156,20);
     }
 
     @Override
@@ -138,33 +142,37 @@ public class JDialog_AddCCAccount extends JDialog_AddAccount {
         // Handle extra radio button click specific to JDialog_AddCCAccount
     }
 
-    private void addEntryInTable(Account account) {
+    private void addEntryInTable(CreditCardAccount account) {
         System.out.println("rowcount " + parentframe.getModel().getRowCount());
-
-        parentframe.getRowData()[0] = account.getAccountNumber();
-        parentframe.getRowData()[1] = account.getCustomer().getName();
-        parentframe.getRowData()[2] = account.getCustomer().getAddress().getCity();
-        parentframe.getRowData()[3] = account.getAccountType() == AccountType.COMPANY ? "C": "P";
-        parentframe.getRowData()[4] = JRadioButton_Chk.isSelected()? "Ch": "S";
-        parentframe.getRowData()[5] = String.valueOf(Objects.isNull(account.getBalance()) ? "0": account.getBalance());
+        parentframe.getRowData()[0] = account.getCustomer().getName();
+        parentframe.getRowData()[1] = account.getAccountNumber();
+        parentframe.getRowData()[2] = account.getExpiryDate();
+        parentframe.getRowData()[3] = account.getAccountType();
+        parentframe.getRowData()[4] = account.getBalance();
 
         parentframe.getModel().addRow(parentframe.getRowData());
     }
 
-    private Account createNewAccout() {
+    private CreditCardAccount createNewAccout() {
         Customer customer = new Customer(JTextField_NAME.getText());
         customer.setAddress(createNewAddress());
-        String accountNumber = JTextField_ACNR.getText();
+        String accountNumber = JTextField_CCNR.getText();
 
         CreditCardAccount account = (CreditCardAccount) accountFactory.createAccount(AccountType.COMPANY, accountNumber, customer);
+        account.setExpiryDate(JTextField_ExpDate.getText());
+        if(JRadioButton_Chk.isSelected()){
+            account.setStrategy(new GoldCardStrategy());
+            System.out.println("Gold Set");
+        } else if(JRadioButton_Sav.isSelected()){
+            account.setStrategy(new SilverCardStrategy());
+            System.out.println("Silver Set");
+        }else if(JRadioButton_Extra.isSelected()){
+            account.setStrategy(new BronzeCardStrategy());
+            System.out.println("Bronze Set");
+        }
 
-//        if(JRadioButton_Chk.isSelected()){
-//            account.setStrategy(new CheckingAccountStrategy());
-//        } else {
-//            account.setStrategy(new SavingsAccountStrategy());
-//        }
-        BankFrm bankfrm = (BankFrm) parentframe;
-        bankfrm.getBankService().createAccount(account);
+        CardFrm cardFrm = (CardFrm) parentframe;
+        cardFrm.getCreditCardAccountService().createAccount(account);
         return account;
     }
 
