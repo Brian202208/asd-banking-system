@@ -17,6 +17,7 @@ public abstract class BaseUIFrame extends JFrame {
     protected DefaultTableModel model;
     protected JTable table;
     protected JScrollPane scrollPane;
+    @Getter
     protected Object[] rowData;
     protected boolean newAccount;
 
