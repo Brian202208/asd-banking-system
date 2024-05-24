@@ -1,7 +1,6 @@
 package com.company.ui.bank;
 
 import com.company.banking.service.BankingServiceImpl;
-import com.company.framework.factory.BankingAccountFactory;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
