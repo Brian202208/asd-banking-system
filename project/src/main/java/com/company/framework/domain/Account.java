@@ -1,20 +1,25 @@
 package com.company.framework.domain;
 
-import com.company.banking.domain.Customer;
-import com.company.banking.observer.Observer;
-import com.company.banking.observer.Subject;
-import com.company.common.AccountType;
+import com.company.common.Customer;
+import com.company.patterns.observer.Observer;
+import com.company.patterns.observer.Subject;
 import lombok.Data;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 @Data
-public abstract class Account implements Subject {
+public abstract class Account implements Subject , Serializable {
+    @Serial
+    private static final long serialVersionUID = -9128140346995162779L;
+
     private Customer customer;
     private String accountNumber;
     private List<AccountEntry> entryList = new ArrayList<>();
     private AccountType type;
+
     private List<Observer> observers = new ArrayList<>();
 
     public Account(String accountNumber, AccountType type) {

@@ -1,4 +1,4 @@
-package com.company.creditcard.CreditCardStrategy;
+package com.company.creditcard.strategy;
 
 public class SilverCardStrategy implements CreditCardStrategy {
     @Override

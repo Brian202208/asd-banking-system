@@ -3,6 +3,10 @@ package com.company.ui.bank;
 import com.company.banking.domain.Address;
 import com.company.banking.domain.Customer;
 import com.company.banking.domain.bankaccount.BankAccount;
+import com.company.common.Address;
+import com.company.common.Customer;
+import com.company.banking.domain.BankAccount;
+import com.company.banking.domain.CompanyAccount;
 import com.company.banking.service.BankingService;
 import com.company.banking.service.BankingServiceImpl;
 import com.company.banking.strategy.CheckingAccountStrategy;
@@ -20,7 +24,7 @@ public class JDialog_AddCompAcc extends JDialog
     private BankFrm parentframe;
 	private BankingService bankingService;
 	private BankingAccountFactory accountFactory;
-    
+
 	public JDialog_AddCompAcc(BankFrm parent)
 	{
 		super(parent);
@@ -153,16 +157,12 @@ public class JDialog_AddCompAcc extends JDialog
 		parentframe.accountnr=JTextField_ACNR.getText();
 
 		//Initialize account, Factory
-
-
-		String accountNumber =JTextField_ACNR.getText();
+		BankAccount companyAccount = new CompanyAccount(JTextField_ACNR.getText());
 
 		parentframe.clientName=JTextField_NAME.getText();
+
 		Customer customer = new Customer(parentframe.clientName);
-
-		BankAccount companyAccount1= accountFactory.createAccount(AccountType.COMPANY,accountNumber,customer);
-		companyAccount1.setCustomer(customer);
-
+		companyAccount.setCustomer(customer);
 
 		parentframe.street=JTextField_STR.getText();
 		parentframe.city=JTextField_CT.getText();
@@ -171,20 +171,18 @@ public class JDialog_AddCompAcc extends JDialog
 		Address address = new Address(parentframe.street, parentframe.city,parentframe.street, JTextField_ZIP.getText());
 		customer.setAddress(address);
 
-
-
 		if (JRadioButton_Chk.isSelected()){
 			parentframe.accountType="Ch";
-			companyAccount1.setStrategy(new CheckingAccountStrategy());
+			companyAccount.setStrategy(new CheckingAccountStrategy());
 		}
 
 		else {
 			parentframe.accountType = "S";
-			companyAccount1.setStrategy(new SavingsAccountStrategy());
+			companyAccount.setStrategy(new SavingsAccountStrategy());
 		}
 
 		parentframe.newaccount=true;
-		bankingService.createAccount(companyAccount1);
+		bankingService.createAccount(companyAccount);
 
 		// make this frame invisible if OK button is clicked
 		dispose();

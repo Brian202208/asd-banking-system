@@ -2,9 +2,9 @@ package com.company.creditcard.domain;
 
 import com.company.framework.domain.Account;
 import com.company.framework.domain.AccountEntry;
-import com.company.banking.observer.Observer;
-import com.company.common.AccountType;
-import com.company.creditcard.CreditCardStrategy.CreditCardStrategy;
+import com.company.patterns.observer.Observer;
+import com.company.framework.domain.AccountType;
+import com.company.creditcard.strategy.CreditCardStrategy;
 import lombok.Setter;
 
 import java.time.LocalDate;

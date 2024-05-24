@@ -1,8 +1,8 @@
-package com.company.banking.integration;
+package com.company.common.integration;
 
 import com.company.framework.domain.Account;
 import com.company.framework.domain.AccountEntry;
-import com.company.banking.observer.Observer;
+import com.company.patterns.observer.Observer;
 
 public class EmailSender implements Observer {
     //action: send email company account

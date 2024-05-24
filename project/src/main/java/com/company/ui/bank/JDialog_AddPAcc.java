@@ -3,10 +3,10 @@ package com.company.ui.bank;
 		A basic implementation of the JDialog class.
 */
 
-import com.company.banking.domain.Address;
-import com.company.banking.domain.Customer;
-import com.company.banking.domain.bankaccount.BankAccount;
-import com.company.banking.domain.bankaccount.PersonalAccount;
+import com.company.common.Address;
+import com.company.common.Customer;
+import com.company.banking.domain.BankAccount;
+import com.company.banking.domain.PersonalAccount;
 import com.company.banking.service.BankingService;
 import com.company.banking.service.BankingServiceImpl;
 import com.company.banking.strategy.CheckingAccountStrategy;

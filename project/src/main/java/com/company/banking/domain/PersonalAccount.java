@@ -1,8 +1,8 @@
-package com.company.banking.domain.bankaccount;
+package com.company.banking.domain;
 
 import com.company.framework.domain.AccountEntry;
-import com.company.common.AccountType;
-import com.company.banking.observer.Observer;
+import com.company.framework.domain.AccountType;
+import com.company.patterns.observer.Observer;
 
 public class PersonalAccount extends BankAccount {
 

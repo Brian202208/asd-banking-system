@@ -1,4 +1,4 @@
-package com.company.creditcard.CreditCardStrategy;
+package com.company.creditcard.strategy;
 
 public class GoldCardStrategy implements CreditCardStrategy {
 

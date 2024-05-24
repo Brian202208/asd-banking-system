@@ -1,13 +1,18 @@
-package com.company.banking.domain;
+package com.company.common;
 
 import com.company.framework.domain.Account;
 import lombok.Data;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.Serial;
+import java.io.Serializable;
 
 @Data
-public class Customer {
+public class Customer implements Serializable {
+
+
+    @Serial
+    private static final long serialVersionUID = -8183274566688504374L;
+
     private String name;
     private String email;
     private String birthdate;

@@ -1,13 +1,10 @@
 package com.company.banking.service;
 
 
-import com.company.banking.domain.Customer;
+import com.company.common.Customer;
 import com.company.framework.domain.Account;
 import com.company.framework.domain.AccountEntry;
 import com.company.framework.service.AccountServiceImpl;
-
-
-import java.util.Collection;
 
 
 public class BankingServiceImpl extends AccountServiceImpl  implements BankingService{
