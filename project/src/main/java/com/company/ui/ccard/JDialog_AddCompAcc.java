@@ -3,9 +3,8 @@ package com.company.ui.ccard;
 import com.company.common.Address;
 import com.company.common.Customer;
 import com.company.creditcard.service.CreditCardAccountServiceImpl;
-import com.company.framework.domain.Account;
-import com.company.framework.factory.AccountFactory;
-import com.company.framework.factory.CreditCardAccountFactory;
+import com.company.patterns.factory.AccountFactory;
+import com.company.patterns.factory.CreditCardAccountFactory;
 
 import javax.swing.*;
 import java.awt.*;

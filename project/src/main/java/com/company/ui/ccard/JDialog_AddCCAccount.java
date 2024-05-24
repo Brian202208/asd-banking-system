@@ -7,16 +7,11 @@ import com.company.common.Address;
 import com.company.common.Customer;
 import com.company.creditcard.strategy.GoldCardStrategy;
 import com.company.creditcard.strategy.SilverCardStrategy;
-import com.company.banking.domain.Address;
-import com.company.banking.domain.Customer;
-import com.company.common.AccountType;
-import com.company.creditcard.CreditCardStrategy.GoldCardStrategy;
-import com.company.creditcard.CreditCardStrategy.SilverCardStrategy;
 import com.company.creditcard.domain.CreditCardAccount;
 import com.company.creditcard.service.CreditCardAccountServiceImpl;
 import com.company.framework.domain.Account;
-import com.company.framework.factory.AccountFactory;
-import com.company.framework.factory.CreditCardAccountFactory;
+import com.company.patterns.factory.AccountFactory;
+import com.company.patterns.factory.CreditCardAccountFactory;
 
 public class JDialog_AddCCAccount extends javax.swing.JDialog
 {

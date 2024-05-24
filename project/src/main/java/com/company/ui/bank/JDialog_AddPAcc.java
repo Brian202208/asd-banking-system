@@ -11,8 +11,8 @@ import com.company.banking.service.BankingService;
 import com.company.banking.service.BankingServiceImpl;
 import com.company.banking.strategy.CheckingAccountStrategy;
 import com.company.banking.strategy.SavingsAccountStrategy;
-import com.company.common.AccountType;
-import com.company.framework.factory.BankingAccountFactory;
+import com.company.framework.domain.AccountType;
+import com.company.patterns.factory.BankingAccountFactory;
 
 import javax.swing.*;
 import java.awt.*;
