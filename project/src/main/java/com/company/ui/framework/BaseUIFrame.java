@@ -1,6 +1,7 @@
 package com.company.ui.framework;
 
-import com.company.framework.domain.AccountType;
+import com.company.ui.ccard.components.JDialog_CCAcc_Deposit;
+import com.company.ui.framework.components.JDialog_Transaction;
 import lombok.Getter;
 
 import javax.swing.*;
@@ -76,9 +77,6 @@ public abstract class BaseUIFrame extends JFrame {
         button.setBounds(x, y, width, height);
     }
 
-    protected JPanel getPanel() {
-        return (JPanel) getContentPane().getComponent(0);
-    }
 
     protected void exitButtonAction(ActionEvent actionEvent) {
         try {
@@ -91,5 +89,34 @@ public abstract class BaseUIFrame extends JFrame {
 
     }
 
-    protected void createAccount(AccountType accountType) {}
+    protected JPanel getPanel() {
+        return (JPanel) getContentPane().getComponent(0);
+    }
+
+    protected void withdrawButtonAction(ActionEvent actionEvent) {
+        int selection = table.getSelectionModel().getMinSelectionIndex();
+        if (selection >=0) {
+            String accnr = (String) model.getValueAt(selection, 0);
+            //Show the dialog for adding withdraw amount for the current mane
+            JDialog_Transaction jDialogTransaction = templateWithDrawMethod(accnr);
+            jDialogTransaction.setBounds(430, 15, 275, 140);
+            jDialogTransaction.show();
+        }
+    }
+
+    protected abstract JDialog_Transaction templateWithDrawMethod(String accnr);
+
+
+    protected void depositButtonAction(ActionEvent actionEvent) {
+        int selection = table.getSelectionModel().getMinSelectionIndex();
+        if (selection >=0) {
+            String accnr = (String) model.getValueAt(selection, 0);
+            //Show the dialog for adding withdraw amount for the current mane
+            JDialog_Transaction jDialogTransaction = templateDepositMethod(accnr);
+            jDialogTransaction.setBounds(430, 15, 275, 140);
+            jDialogTransaction.show();
+        }
+    }
+    protected abstract JDialog_Transaction templateDepositMethod(String accnr);
+
 }

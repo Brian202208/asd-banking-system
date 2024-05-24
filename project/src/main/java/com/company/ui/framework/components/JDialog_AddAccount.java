@@ -126,14 +126,3 @@ public abstract class JDialog_AddAccount extends JDialog {
     }
 }
 
-//    protected void jLabelConfig(JLabel jLabel, int y, int width, int height){
-//        jLabel.setForeground(Color.black);
-//        jLabel.setBounds(12,y,width,height);
-//        getContentPane().add(jLabel);
-//    }
-//
-//    protected void jTextFieldConfig(JTextField jTextField, int y){
-//        jTextField.setBounds(84,y,156,20);
-//        getContentPane().add(jTextField);
-//    }
-//

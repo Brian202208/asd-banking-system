@@ -6,6 +6,7 @@ import com.company.ui.bank.components.JDialog_BankAcc_Withdraw;
 import com.company.ui.ccard.components.JDialog_CCAcc_Charge;
 import com.company.ui.ccard.components.JDialog_CCAcc_Deposit;
 import com.company.ui.framework.BaseUIFrame;
+import com.company.ui.framework.components.JDialog_Transaction;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -58,29 +59,6 @@ public class CardFrm extends BaseUIFrame {
 		addButtonListener(btnWithdraw, this::withdrawButtonAction);
 	}
 
-	private void withdrawButtonAction(ActionEvent actionEvent) {
-		int selection = table.getSelectionModel().getMinSelectionIndex();
-		if (selection >=0) {
-			String accnr = (String) model.getValueAt(selection, 0);
-
-			//Show the dialog for adding withdraw amount for the current mane
-			JDialog_CCAcc_Charge dp = new JDialog_CCAcc_Charge(this, accnr);
-			dp.setBounds(430, 15, 275, 140);
-			dp.show();
-		}
-	}
-
-	private void depositButtonAction(ActionEvent actionEvent) {
-		int selection = table.getSelectionModel().getMinSelectionIndex();
-		if (selection >=0) {
-			String accnr = (String) model.getValueAt(selection, 0);
-
-			//Show the dialog for adding withdraw amount for the current mane
-			JDialog_CCAcc_Deposit dp = new JDialog_CCAcc_Deposit(this, accnr);
-			dp.setBounds(430, 15, 275, 140);
-			dp.show();
-		}
-	}
 
 
 	private void addCCAccountButtonAction(ActionEvent actionEvent) {
@@ -110,6 +88,15 @@ public class CardFrm extends BaseUIFrame {
 		exitApplication();
 	}
 
+	@Override
+	protected JDialog_Transaction templateWithDrawMethod(String accnr) {
+		return new JDialog_CCAcc_Charge(this, accnr);
+	}
+
+	@Override
+	protected JDialog_Transaction templateDepositMethod(String accnr) {
+		return new JDialog_CCAcc_Deposit(this, accnr);
+	}
 
 
 }
