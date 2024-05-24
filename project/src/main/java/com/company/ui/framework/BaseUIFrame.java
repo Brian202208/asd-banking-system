@@ -15,6 +15,7 @@ import java.awt.event.WindowEvent;
 public abstract class BaseUIFrame extends JFrame {
     @Getter
     protected DefaultTableModel model;
+    @Getter
     protected JTable table;
     protected JScrollPane scrollPane;
     @Getter

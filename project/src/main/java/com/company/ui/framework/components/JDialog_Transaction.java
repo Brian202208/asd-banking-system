@@ -10,7 +10,7 @@ public abstract class JDialog_Transaction extends JDialog {
     JLabel JLabel1 = new JLabel();
     JLabel JLabel2 = new JLabel();
     JTextField JTextField_NAME = new JTextField();
-    JTextField JTextField_AMT = new JTextField();
+    protected JTextField JTextField_AMT = new JTextField();
     JButton JButton_OK = new JButton();
     JButton JButton_Cancel = new JButton();
 

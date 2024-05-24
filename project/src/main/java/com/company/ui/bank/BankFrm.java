@@ -1,5 +1,6 @@
 package com.company.ui.bank;
 
+import com.company.banking.service.BankingService;
 import com.company.banking.service.BankingServiceImpl;
 import com.company.ui.bank.components.JDialog_AddCompAcc;
 import com.company.ui.bank.components.JDialog_AddPAcc;
@@ -7,6 +8,7 @@ import com.company.ui.bank.components.JDialog_BankAcc_Deposit;
 import com.company.ui.bank.components.JDialog_BankAcc_Withdraw;
 import com.company.ui.framework.BaseUIFrame;
 import com.company.ui.framework.components.JDialog_Transaction;
+import lombok.Getter;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -30,7 +32,8 @@ public class BankFrm extends BaseUIFrame {
         }
     }
 
-    private BankingServiceImpl bankService;
+    @Getter
+    private BankingService bankService;
     private JButton btnPersonalAccount;
     private JButton btnCompanyAccount;
     private JButton btnDeposit;
