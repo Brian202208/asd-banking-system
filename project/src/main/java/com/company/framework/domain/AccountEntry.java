@@ -3,12 +3,19 @@ package com.company.framework.domain;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Date;
 
 @Data
 @NoArgsConstructor
-public class AccountEntry {
+public class AccountEntry implements Serializable {
+
+
+	@Serial
+	private static final long serialVersionUID = 5736110133643994780L;
+
 	private LocalDate date;
 	private double amount;
 	private String description;
