@@ -1,6 +1,7 @@
 package com.company.ui.bank;
 
 import com.company.banking.service.BankingServiceImpl;
+import com.company.framework.factory.BankingAccountFactory;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -17,6 +18,7 @@ public class BankFrm extends JFrame
      * init variables in the object
      ****/
 	private BankingServiceImpl bankService;
+
     String accountnr, clientName,street,city,zip,state,accountType,clientType,amountDeposit;
     boolean newaccount;
     private DefaultTableModel model;
@@ -305,7 +307,9 @@ public class BankFrm extends JFrame
 	
 	void JButtonAddinterest_actionPerformed(ActionEvent event)
 	{
+
 		  JOptionPane.showMessageDialog(JButton_Addinterest, "Add interest to all accounts","Add interest to all accounts",JOptionPane.WARNING_MESSAGE);
+		bankService.addInterest();
 
 	}
 }
