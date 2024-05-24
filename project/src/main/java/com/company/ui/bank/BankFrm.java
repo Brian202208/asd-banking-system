@@ -73,7 +73,7 @@ public class BankFrm extends BaseUIFrame {
             String accnr = (String) model.getValueAt(selection, 0);
 
             //Show the dialog for adding withdraw amount for the current mane
-            JDialog_BankAcc_Withdraw dp = new JDialog_BankAcc_Withdraw(this, "accnr");
+            JDialog_BankAcc_Withdraw dp = new JDialog_BankAcc_Withdraw(this, accnr);
             dp.setBounds(430, 15, 275, 140);
             dp.show();
         }
