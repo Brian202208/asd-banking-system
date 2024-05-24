@@ -1,11 +1,19 @@
 package com.company.ui.bank.components;
 
+import com.company.banking.domain.BankAccount;
+import com.company.banking.strategy.CheckingAccountStrategy;
+import com.company.banking.strategy.SavingsAccountStrategy;
+import com.company.common.Address;
+import com.company.common.Customer;
+import com.company.framework.domain.Account;
+import com.company.framework.domain.AccountType;
 import com.company.ui.bank.BankFrm;
 import com.company.ui.framework.components.JDialog_AddAccount;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.util.Objects;
 
 public class JDialog_AddCompAcc extends JDialog_AddAccount {
     JTextField JTextField_NoOfEmp;
@@ -111,6 +119,38 @@ public class JDialog_AddCompAcc extends JDialog_AddAccount {
     protected void JButtonOK_actionPerformed(ActionEvent event) {
         // Implement OK button action specific to JDialog_AddCompAcc
         System.out.println("OKAY PRESSED");
+        addEntryInTable(createNewAccout());
+        dispose();
+    }
 
+    private void addEntryInTable(Account account) {
+        System.out.println("rowcount " + parentframe.getModel().getRowCount());
+
+        parentframe.getRowData()[0] = account.getAccountNumber();
+        parentframe.getRowData()[1] = account.getCustomer().getName();
+        parentframe.getRowData()[2] = account.getCustomer().getAddress().getCity();
+        parentframe.getRowData()[3] = account.getAccountType() == AccountType.COMPANY ? "C": "P";
+        parentframe.getRowData()[4] = JRadioButton_Chk.isSelected()? "Ch": "S";
+        parentframe.getRowData()[5] = String.valueOf(Objects.isNull(account.getBalance()) ? "0": account.getBalance());
+
+        parentframe.getModel().addRow(parentframe.getRowData());
+    }
+
+    private Account createNewAccout() {
+        Customer customer = new Customer(JTextField_NAME.getText());
+        customer.setAddress(createNewAddress());
+        String accountNumber = JTextField_ACNR.getText();
+
+        BankAccount account = accountFactory.createAccount(AccountType.COMPANY, accountNumber, customer);
+        if(JRadioButton_Chk.isSelected()){
+            account.setStrategy(new CheckingAccountStrategy());
+        } else {
+            account.setStrategy(new SavingsAccountStrategy());
+        }
+        return account;
+    }
+
+    private Address createNewAddress(){
+        return new Address(JTextField_STR.getText(),JTextField_ST.getText(),JTextField_CT.getText(), JTextField_ZIP.getText());
     }
 }
