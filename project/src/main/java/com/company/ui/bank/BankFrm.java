@@ -1,7 +1,9 @@
 package com.company.ui.bank;
 
+import com.company.banking.domain.BankAccount;
 import com.company.banking.service.BankingService;
 import com.company.banking.service.BankingServiceImpl;
+import com.company.framework.domain.Account;
 import com.company.ui.bank.components.JDialog_AddCompAcc;
 import com.company.ui.bank.components.JDialog_AddPAcc;
 import com.company.ui.bank.components.JDialog_BankAcc_Deposit;
@@ -13,6 +15,7 @@ import lombok.Getter;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.WindowEvent;
+import java.util.Collection;
 
 /**
  * A basic JFC based application.
@@ -69,6 +72,19 @@ public class BankFrm extends BaseUIFrame {
     }
 
     private void addInterestButtonAction(ActionEvent actionEvent) {
+        JOptionPane.showMessageDialog(btnAddInterest, "Add interest to all accounts","Add interest to all accounts",JOptionPane.WARNING_MESSAGE);
+        bankService.addInterest();
+        int rowCount = model.getRowCount();
+        int count = 0;
+
+        Collection<Account> allAccounts = bankService.getAllAccounts();
+        for(Account account: allAccounts){
+            if(account instanceof BankAccount && count < rowCount) {
+                BankAccount bankAccount = (BankAccount) account;
+                model.setValueAt(bankAccount.getBalance(), count, 5);
+                count++;
+            }
+        }
     }
 
 

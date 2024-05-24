@@ -147,6 +147,8 @@ public class JDialog_AddCompAcc extends JDialog_AddAccount {
         } else {
             account.setStrategy(new SavingsAccountStrategy());
         }
+        BankFrm bankfrm = (BankFrm) parentframe;
+        bankfrm.getBankService().createAccount(account);
         return account;
     }
 
